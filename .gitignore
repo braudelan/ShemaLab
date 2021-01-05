@@ -1,0 +1,14 @@
+#######   
+####### ignore all #######
+
+*  # ignore all files in the current dir
+*/ # ignore all subdirectories
+
+####### include these files/directories #######
+
+!.gitignore # include gitignore file
+!*.py # include all python scripts
+!*.sh # include all bash scripts
+
+
+
