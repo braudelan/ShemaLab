@@ -9,12 +9,13 @@
 !/Danielle_cut_n_run_Dec2020/
 /Danielle_cut_n_run_Dec2020/**
 !/Danielle_cut_n_run_Dec2020/CR6/
-#!/libraries/myLibrary/
+/Danielle_cut_n_run_Dec2020/CR6/**
+!/Danielle_cut_n_run_Dec2020/CR6/multiqc_reports/
+/Danielle_cut_n_run_Dec2020/CR6/multiqc_reports/**
 
-####### Un-ignore the following file types #######
+####### Un-ignore the following file types #######
 
 !*.py 
 !*.sh 
-#!*.pdf
-#!*.html
-#!*.txt
+!*.pdf
+!*.html

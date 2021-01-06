@@ -1,0 +1,1985 @@
+<html>
+<head>
+<link rel="SHORTCUT ICON" href="./resources/images/logo.png"/>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="./resources/css/style.css" />
+<div class="header">
+	<p><b>General QC for run AHLGKWBGXF</b><p>
+	<!-- <p class="sep">Sequence protocol: <b><span class='protocol'></span></b></p>	 -->
+</div>
+
+<div class="sidebar">
+	<h4>Quick Navigation</h4>
+	<ul>
+		<li><a href="#lane1">Lane 1</a></li>
+		<ul>
+			<li><a href="#lane1">Sequence quality</a></li>
+			<li><a href="#pf1">#PF reads</a></li>
+			
+			<li><a href="#basic1">Basic parameters per sample</a></li>
+		</ul>
+		<li><a href="#lane2">Lane 2</a></li>
+		<ul>
+			<li><a href="#lane2">Sequence quality</a></li>
+			<li><a href="#pf2">#PF reads</a></li>
+			
+			<li><a href="#basic2">Basic parameters per sample</a></li>
+		</ul>
+		<li><a href="#lane3">Lane 3</a></li>
+		<ul>
+			<li><a href="#lane3">Sequence quality</a></li>
+			<li><a href="#pf3">#PF reads</a></li>
+			
+			<li><a href="#basic3">Basic parameters per sample</a></li>
+		</ul>
+		<li><a href="#lane4">Lane 4</a></li>
+		<ul>
+			<li><a href="#lane4">Sequence quality</a></li>
+			<li><a href="#pf4">#PF reads</a></li>
+			
+			<li><a href="#basic4">Basic parameters per sample</a></li>
+		</ul>
+	</ul>
+</div>
+<div class="main"> 
+	<div id="lane1">
+		<br>
+		<h2>Lane 1</h2>
+		<h3>Mean per base sequence quality</h3>
+		<h4>Read 1</h4>
+		<img src="./resources/images/L001_R1_q_scores.png" style="width:1100px;" />
+		<h4>Read 2</h4>
+		<img src="./resources/images/L001_R2_q_scores.png" style="width:1100px;" />
+		<br> 
+		<br>
+		<div class="pf-reads" id="pf1">
+			<h3>#PF reads per sample</h3>
+			<img src="./resources/images/L001_pf_reads.png" style="width:1000px;"/>
+		</div>
+		<!-- TODO
+		<div>
+			<h3>Control Metrics</h3>
+			<table class="fc-stats">
+			<tbody>
+				<tr><td>Phi-X Spike</td><td>1%</td></tr>
+				<tr><td>Reads aligned to Phi-X</td><td>0.8%</td></tr>
+				<tr><td>Total number of PF reads</td><td>91,101,826</td></tr>
+				<tr><td>Of which undetermined sequences</td><td class="failed">42.6%</td></tr>
+				<tr><td>Error rate</td><td> -???-</td></tr>
+			</tbody>
+			</table>
+		</div> -->
+		<p style="clear:both;"></p>
+		<br>
+		<div class="basic-params" id="basic1">
+		<h3>Basic parameters per sample</h3>
+		<table border='0'>
+			<tr valign='top'>
+				<td><b>Lane</b></td>
+				<td><b>Sample</b></td>
+				<td><b>Index</b></td>
+				<td>
+					<span title="The number of passed filter clusters that were assigned to each sample after demultiplexing ("Undetermined" are clusters that were not assigned to any of the samples).">
+					<b># PF Clusters</b><img class="icon" src="./resources/images/info.png" border='0'></span>
+				</td>
+				<td>
+					<span title="The percentage of passed filter clusters per sample (out of all passed filter clusters in the lane)">
+					<b>% Clusters<img class="icon" src="./resources/images/info.png" border='0'><br>per sample</b>
+				</td>
+				<td>
+					<span title="The percentage of bases &#8805;Q30 is averaged across all sequences assigned to the sample (separately for read 1 and read 2 if paired-end), not on a per-sequence or per-cycle basis. This data is derived from the FastQC reports">
+					<b>%&#8805;Q30</b><img class="icon" src="./resources/images/info.png" border='0'></span>
+				</td>
+				<td>
+					<span title="The mean quality score per sequence, calculated over all bases (separately for read 1 and read 2 if paired-end). The scores (called Phred quality scores) are defined as: Q = -10*log10(P), where P is the probability of an incorrect base call. This data is derived from the FastQC reports">
+					<b>Mean<img class="icon" src="./resources/images/info.png" border='0'><br>Qscore</b></td>
+				<td><b>FastQC Analysis</b></td>
+				<td><b>Fastq_screen Analysis</b></td>
+			</tr>
+			 
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CR13HP1a</td><td>ACAGTTGA</td>
+				<td align='right'>4,422,266</td><td align='right'>3.94</td>
+				<td align='right'>94.39  (R1) 92.74 (R2) </td>
+				<td align='right'>34.0  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13HP1a_S1_L001_R1_fastqc.zip" target="CR13HP1a_S1_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HP1a_S1_L001_R1_fastqc/fastqc_report.html" target="CR13HP1a_S1_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13HP1a_S1_L001_R2_fastqc.zip" target="CR13HP1a_S1_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HP1a_S1_L001_R2_fastqc/fastqc_report.html" target="CR13HP1a_S1_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13HP1a_S1_L001_R1_001_screen.html" target="CR13HP1a_S1_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CR13HRP</td><td>ATTCCTCT</td>
+				<td align='right'>4,249,071</td><td align='right'>3.79</td>
+				<td align='right'>94.83  (R1) 92.66 (R2) </td>
+				<td align='right'>34.0  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13HRP_S2_L001_R1_fastqc.zip" target="CR13HRP_S2_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HRP_S2_L001_R1_fastqc/fastqc_report.html" target="CR13HRP_S2_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13HRP_S2_L001_R2_fastqc.zip" target="CR13HRP_S2_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HRP_S2_L001_R2_fastqc/fastqc_report.html" target="CR13HRP_S2_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13HRP_S2_L001_R1_001_screen.html" target="CR13HRP_S2_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CR13K27M</td><td>GAAGGAAG</td>
+				<td align='right'>3,340,687</td><td align='right'>2.98</td>
+				<td align='right'>95.06  (R1) 93.36 (R2) </td>
+				<td align='right'>34.0  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13K27M_S3_L001_R1_fastqc.zip" target="CR13K27M_S3_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K27M_S3_L001_R1_fastqc/fastqc_report.html" target="CR13K27M_S3_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13K27M_S3_L001_R2_fastqc.zip" target="CR13K27M_S3_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K27M_S3_L001_R2_fastqc/fastqc_report.html" target="CR13K27M_S3_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13K27M_S3_L001_R1_001_screen.html" target="CR13K27M_S3_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CR13K9me3</td><td>TCGCTAGA</td>
+				<td align='right'>5,305,231</td><td align='right'>4.73</td>
+				<td align='right'>94.55  (R1) 92.86 (R2) </td>
+				<td align='right'>34.0  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13K9me3_S4_L001_R1_fastqc.zip" target="CR13K9me3_S4_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K9me3_S4_L001_R1_fastqc/fastqc_report.html" target="CR13K9me3_S4_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13K9me3_S4_L001_R2_fastqc.zip" target="CR13K9me3_S4_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K9me3_S4_L001_R2_fastqc/fastqc_report.html" target="CR13K9me3_S4_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13K9me3_S4_L001_R1_001_screen.html" target="CR13K9me3_S4_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CR6H33</td><td>ACTAAGAC</td>
+				<td align='right'>5,227,379</td><td align='right'>4.66</td>
+				<td align='right'>93.87  (R1) 92.48 (R2) </td>
+				<td align='right'>34.0  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6H33_S5_L001_R1_fastqc.zip" target="CR6H33_S5_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6H33_S5_L001_R1_fastqc/fastqc_report.html" target="CR6H33_S5_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6H33_S5_L001_R2_fastqc.zip" target="CR6H33_S5_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6H33_S5_L001_R2_fastqc/fastqc_report.html" target="CR6H33_S5_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6H33_S5_L001_R1_001_screen.html" target="CR6H33_S5_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CR6HRP</td><td>ACAGGTAT</td>
+				<td align='right'>4,090,550</td><td align='right'>3.65</td>
+				<td align='right'>95.06  (R1) 93.16 (R2) </td>
+				<td align='right'>34.0  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6HRP_S6_L001_R1_fastqc.zip" target="CR6HRP_S6_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6HRP_S6_L001_R1_fastqc/fastqc_report.html" target="CR6HRP_S6_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6HRP_S6_L001_R2_fastqc.zip" target="CR6HRP_S6_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6HRP_S6_L001_R2_fastqc/fastqc_report.html" target="CR6HRP_S6_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6HRP_S6_L001_R1_001_screen.html" target="CR6HRP_S6_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CR6K27M</td><td>CCAACATT</td>
+				<td align='right'>2,421,846</td><td align='right'>2.16</td>
+				<td align='right'>95.03  (R1) 93.59 (R2) </td>
+				<td align='right'>34.0  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6K27M_S7_L001_R1_fastqc.zip" target="CR6K27M_S7_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K27M_S7_L001_R1_fastqc/fastqc_report.html" target="CR6K27M_S7_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6K27M_S7_L001_R2_fastqc.zip" target="CR6K27M_S7_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K27M_S7_L001_R2_fastqc/fastqc_report.html" target="CR6K27M_S7_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6K27M_S7_L001_R1_001_screen.html" target="CR6K27M_S7_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CR6K4me3</td><td>GCCGTCGA</td>
+				<td align='right'>4,433,875</td><td align='right'>3.95</td>
+				<td align='right'>92.38  (R1) 91.39 (R2) </td>
+				<td align='right'>33.6  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6K4me3_S8_L001_R1_fastqc.zip" target="CR6K4me3_S8_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K4me3_S8_L001_R1_fastqc/fastqc_report.html" target="CR6K4me3_S8_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6K4me3_S8_L001_R2_fastqc.zip" target="CR6K4me3_S8_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K4me3_S8_L001_R2_fastqc/fastqc_report.html" target="CR6K4me3_S8_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6K4me3_S8_L001_R1_001_screen.html" target="CR6K4me3_S8_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CR6ML11</td><td>TATCTGCC</td>
+				<td align='right'>3,661,117</td><td align='right'>3.26</td>
+				<td align='right'>94.37  (R1) 92.97 (R2) </td>
+				<td align='right'>33.9  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6ML11_S9_L001_R1_fastqc.zip" target="CR6ML11_S9_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6ML11_S9_L001_R1_fastqc/fastqc_report.html" target="CR6ML11_S9_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6ML11_S9_L001_R2_fastqc.zip" target="CR6ML11_S9_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6ML11_S9_L001_R2_fastqc/fastqc_report.html" target="CR6ML11_S9_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6ML11_S9_L001_R1_001_screen.html" target="CR6ML11_S9_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CRmutEZH2</td><td>TTGTCTAT</td>
+				<td align='right'>4,921,259</td><td align='right'>4.39</td>
+				<td align='right'>95.54  (R1) 93.86 (R2) </td>
+				<td align='right'>34.1  (R1) 33.9 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutEZH2_S10_L001_R1_fastqc.zip" target="CRmutEZH2_S10_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutEZH2_S10_L001_R1_fastqc/fastqc_report.html" target="CRmutEZH2_S10_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutEZH2_S10_L001_R2_fastqc.zip" target="CRmutEZH2_S10_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutEZH2_S10_L001_R2_fastqc/fastqc_report.html" target="CRmutEZH2_S10_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutEZH2_S10_L001_R1_001_screen.html" target="CRmutEZH2_S10_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CRmutH33</td><td>AACAATGG</td>
+				<td align='right'>5,882,233</td><td align='right'>5.24</td>
+				<td align='right'>94.70  (R1) 93.19 (R2) </td>
+				<td align='right'>34.0  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutH33_S11_L001_R1_fastqc.zip" target="CRmutH33_S11_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutH33_S11_L001_R1_fastqc/fastqc_report.html" target="CRmutH33_S11_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutH33_S11_L001_R2_fastqc.zip" target="CRmutH33_S11_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutH33_S11_L001_R2_fastqc/fastqc_report.html" target="CRmutH33_S11_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutH33_S11_L001_R1_001_screen.html" target="CRmutH33_S11_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CRmutHRP</td><td>TGTAATCA</td>
+				<td align='right'>530,805</td><td align='right'>0.47</td>
+				<td align='right'>92.69  (R1) 78.75 (R2) </td>
+				<td align='right'>33.6  (R1) 31.3 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutHRP_S12_L001_R1_fastqc.zip" target="CRmutHRP_S12_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutHRP_S12_L001_R1_fastqc/fastqc_report.html" target="CRmutHRP_S12_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutHRP_S12_L001_R2_fastqc.zip" target="CRmutHRP_S12_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutHRP_S12_L001_R2_fastqc/fastqc_report.html" target="CRmutHRP_S12_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutHRP_S12_L001_R1_001_screen.html" target="CRmutHRP_S12_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CRmutK27M</td><td>ATTATCAA</td>
+				<td align='right'>3,778,326</td><td align='right'>3.37</td>
+				<td align='right'>94.83  (R1) 93.34 (R2) </td>
+				<td align='right'>34.0  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutK27M_S13_L001_R1_fastqc.zip" target="CRmutK27M_S13_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK27M_S13_L001_R1_fastqc/fastqc_report.html" target="CRmutK27M_S13_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutK27M_S13_L001_R2_fastqc.zip" target="CRmutK27M_S13_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK27M_S13_L001_R2_fastqc/fastqc_report.html" target="CRmutK27M_S13_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutK27M_S13_L001_R1_001_screen.html" target="CRmutK27M_S13_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CRmutK4</td><td>CTATGCGT</td>
+				<td align='right'>10,914,899</td><td align='right'>9.73</td>
+				<td align='right'>92.71  (R1) 91.75 (R2) </td>
+				<td align='right'>33.7  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutK4_S14_L001_R1_fastqc.zip" target="CRmutK4_S14_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK4_S14_L001_R1_fastqc/fastqc_report.html" target="CRmutK4_S14_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutK4_S14_L001_R2_fastqc.zip" target="CRmutK4_S14_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK4_S14_L001_R2_fastqc/fastqc_report.html" target="CRmutK4_S14_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutK4_S14_L001_R1_001_screen.html" target="CRmutK4_S14_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CRmutMLL1</td><td>GTCCACAG</td>
+				<td align='right'>4,525,988</td><td align='right'>4.03</td>
+				<td align='right'>94.75  (R1) 93.09 (R2) </td>
+				<td align='right'>34.0  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutMLL1_S15_L001_R1_fastqc.zip" target="CRmutMLL1_S15_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutMLL1_S15_L001_R1_fastqc/fastqc_report.html" target="CRmutMLL1_S15_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutMLL1_S15_L001_R2_fastqc.zip" target="CRmutMLL1_S15_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutMLL1_S15_L001_R2_fastqc/fastqc_report.html" target="CRmutMLL1_S15_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutMLL1_S15_L001_R1_001_screen.html" target="CRmutMLL1_S15_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CRwtEZH2</td><td>CTAACTCG</td>
+				<td align='right'>6,809,901</td><td align='right'>6.07</td>
+				<td align='right'>95.28  (R1) 93.62 (R2) </td>
+				<td align='right'>34.1  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtEZH2_S16_L001_R1_fastqc.zip" target="CRwtEZH2_S16_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtEZH2_S16_L001_R1_fastqc/fastqc_report.html" target="CRwtEZH2_S16_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtEZH2_S16_L001_R2_fastqc.zip" target="CRwtEZH2_S16_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtEZH2_S16_L001_R2_fastqc/fastqc_report.html" target="CRwtEZH2_S16_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtEZH2_S16_L001_R1_001_screen.html" target="CRwtEZH2_S16_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CRwtH33</td><td>GTAACATC</td>
+				<td align='right'>6,806,166</td><td align='right'>6.07</td>
+				<td align='right'>95.04  (R1) 93.16 (R2) </td>
+				<td align='right'>34.0  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtH33_S17_L001_R1_fastqc.zip" target="CRwtH33_S17_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtH33_S17_L001_R1_fastqc/fastqc_report.html" target="CRwtH33_S17_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtH33_S17_L001_R2_fastqc.zip" target="CRwtH33_S17_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtH33_S17_L001_R2_fastqc/fastqc_report.html" target="CRwtH33_S17_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtH33_S17_L001_R1_001_screen.html" target="CRwtH33_S17_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CRwtHRP</td><td>CGCCTTCC</td>
+				<td align='right'>6,265,369</td><td align='right'>5.59</td>
+				<td align='right'>94.56  (R1) 92.26 (R2) </td>
+				<td align='right'>34.0  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtHRP_S18_L001_R1_fastqc.zip" target="CRwtHRP_S18_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtHRP_S18_L001_R1_fastqc/fastqc_report.html" target="CRwtHRP_S18_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtHRP_S18_L001_R2_fastqc.zip" target="CRwtHRP_S18_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtHRP_S18_L001_R2_fastqc/fastqc_report.html" target="CRwtHRP_S18_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtHRP_S18_L001_R1_001_screen.html" target="CRwtHRP_S18_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CRwtK27M</td><td>GCCTAGCC</td>
+				<td align='right'>7,149,772</td><td align='right'>6.37</td>
+				<td align='right'>94.06  (R1) 92.59 (R2) </td>
+				<td align='right'>33.9  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtK27M_S19_L001_R1_fastqc.zip" target="CRwtK27M_S19_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK27M_S19_L001_R1_fastqc/fastqc_report.html" target="CRwtK27M_S19_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtK27M_S19_L001_R2_fastqc.zip" target="CRwtK27M_S19_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK27M_S19_L001_R2_fastqc/fastqc_report.html" target="CRwtK27M_S19_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtK27M_S19_L001_R1_001_screen.html" target="CRwtK27M_S19_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CRwtK4</td><td>TGCTGCTG</td>
+				<td align='right'>6,290,658</td><td align='right'>5.61</td>
+				<td align='right'>92.98  (R1) 91.75 (R2) </td>
+				<td align='right'>33.7  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtK4_S20_L001_R1_fastqc.zip" target="CRwtK4_S20_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK4_S20_L001_R1_fastqc/fastqc_report.html" target="CRwtK4_S20_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtK4_S20_L001_R2_fastqc.zip" target="CRwtK4_S20_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK4_S20_L001_R2_fastqc/fastqc_report.html" target="CRwtK4_S20_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtK4_S20_L001_R1_001_screen.html" target="CRwtK4_S20_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>1</td><td>CRwtMLL1</td><td>AGGTAAGG</td>
+				<td align='right'>7,608,545</td><td align='right'>6.78</td>
+				<td align='right'>94.85  (R1) 92.76 (R2) </td>
+				<td align='right'>34.0  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtMLL1_S21_L001_R1_fastqc.zip" target="CRwtMLL1_S21_L001_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtMLL1_S21_L001_R1_fastqc/fastqc_report.html" target="CRwtMLL1_S21_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtMLL1_S21_L001_R2_fastqc.zip" target="CRwtMLL1_S21_L001_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtMLL1_S21_L001_R2_fastqc/fastqc_report.html" target="CRwtMLL1_S21_L001_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtMLL1_S21_L001_R1_001_screen.html" target="CRwtMLL1_S21_L001_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor='yellow'>
+				<td>1</td><td>Undetermined Indices</td><td>Undetermined</td>
+				<td align='right'>3,538,836</td><td align='right'>3.15</td>
+				<td/><td/><td/><td/>
+			<!--<td/>-->
+				  
+			</tr>
+		</table>
+		</div><!-- basic-params -->
+	<div id="lane2">
+		<br>
+		<h2>Lane 2</h2>
+		<h3>Mean per base sequence quality</h3>
+		<h4>Read 1</h4>
+		<img src="./resources/images/L002_R1_q_scores.png" style="width:1100px;" />
+		<h4>Read 2</h4>
+		<img src="./resources/images/L002_R2_q_scores.png" style="width:1100px;" />
+		<br> 
+		<br>
+		<div class="pf-reads" id="pf2">
+			<h3>#PF reads per sample</h3>
+			<img src="./resources/images/L002_pf_reads.png" style="width:1000px;"/>
+		</div>
+		<!-- TODO
+		<div>
+			<h3>Control Metrics</h3>
+			<table class="fc-stats">
+			<tbody>
+				<tr><td>Phi-X Spike</td><td>1%</td></tr>
+				<tr><td>Reads aligned to Phi-X</td><td>0.8%</td></tr>
+				<tr><td>Total number of PF reads</td><td>91,101,826</td></tr>
+				<tr><td>Of which undetermined sequences</td><td class="failed">42.6%</td></tr>
+				<tr><td>Error rate</td><td> -???-</td></tr>
+			</tbody>
+			</table>
+		</div> -->
+		<p style="clear:both;"></p>
+		<br>
+		<div class="basic-params" id="basic2">
+		<h3>Basic parameters per sample</h3>
+		<table border='0'>
+			<tr valign='top'>
+				<td><b>Lane</b></td>
+				<td><b>Sample</b></td>
+				<td><b>Index</b></td>
+				<td>
+					<span title="The number of passed filter clusters that were assigned to each sample after demultiplexing ("Undetermined" are clusters that were not assigned to any of the samples).">
+					<b># PF Clusters</b><img class="icon" src="./resources/images/info.png" border='0'></span>
+				</td>
+				<td>
+					<span title="The percentage of passed filter clusters per sample (out of all passed filter clusters in the lane)">
+					<b>% Clusters<img class="icon" src="./resources/images/info.png" border='0'><br>per sample</b>
+				</td>
+				<td>
+					<span title="The percentage of bases &#8805;Q30 is averaged across all sequences assigned to the sample (separately for read 1 and read 2 if paired-end), not on a per-sequence or per-cycle basis. This data is derived from the FastQC reports">
+					<b>%&#8805;Q30</b><img class="icon" src="./resources/images/info.png" border='0'></span>
+				</td>
+				<td>
+					<span title="The mean quality score per sequence, calculated over all bases (separately for read 1 and read 2 if paired-end). The scores (called Phred quality scores) are defined as: Q = -10*log10(P), where P is the probability of an incorrect base call. This data is derived from the FastQC reports">
+					<b>Mean<img class="icon" src="./resources/images/info.png" border='0'><br>Qscore</b></td>
+				<td><b>FastQC Analysis</b></td>
+				<td><b>Fastq_screen Analysis</b></td>
+			</tr>
+			 
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CR13HP1a</td><td>ACAGTTGA</td>
+				<td align='right'>4,355,193</td><td align='right'>3.93</td>
+				<td align='right'>94.57  (R1) 92.77 (R2) </td>
+				<td align='right'>34.0  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13HP1a_S1_L002_R1_fastqc.zip" target="CR13HP1a_S1_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HP1a_S1_L002_R1_fastqc/fastqc_report.html" target="CR13HP1a_S1_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13HP1a_S1_L002_R2_fastqc.zip" target="CR13HP1a_S1_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HP1a_S1_L002_R2_fastqc/fastqc_report.html" target="CR13HP1a_S1_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13HP1a_S1_L002_R1_001_screen.html" target="CR13HP1a_S1_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CR13HRP</td><td>ATTCCTCT</td>
+				<td align='right'>4,176,722</td><td align='right'>3.77</td>
+				<td align='right'>95.10  (R1) 92.73 (R2) </td>
+				<td align='right'>34.0  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13HRP_S2_L002_R1_fastqc.zip" target="CR13HRP_S2_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HRP_S2_L002_R1_fastqc/fastqc_report.html" target="CR13HRP_S2_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13HRP_S2_L002_R2_fastqc.zip" target="CR13HRP_S2_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HRP_S2_L002_R2_fastqc/fastqc_report.html" target="CR13HRP_S2_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13HRP_S2_L002_R1_001_screen.html" target="CR13HRP_S2_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CR13K27M</td><td>GAAGGAAG</td>
+				<td align='right'>3,291,978</td><td align='right'>2.97</td>
+				<td align='right'>95.22  (R1) 93.38 (R2) </td>
+				<td align='right'>34.0  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13K27M_S3_L002_R1_fastqc.zip" target="CR13K27M_S3_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K27M_S3_L002_R1_fastqc/fastqc_report.html" target="CR13K27M_S3_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13K27M_S3_L002_R2_fastqc.zip" target="CR13K27M_S3_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K27M_S3_L002_R2_fastqc/fastqc_report.html" target="CR13K27M_S3_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13K27M_S3_L002_R1_001_screen.html" target="CR13K27M_S3_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CR13K9me3</td><td>TCGCTAGA</td>
+				<td align='right'>5,229,264</td><td align='right'>4.72</td>
+				<td align='right'>94.73  (R1) 92.87 (R2) </td>
+				<td align='right'>34.0  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13K9me3_S4_L002_R1_fastqc.zip" target="CR13K9me3_S4_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K9me3_S4_L002_R1_fastqc/fastqc_report.html" target="CR13K9me3_S4_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13K9me3_S4_L002_R2_fastqc.zip" target="CR13K9me3_S4_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K9me3_S4_L002_R2_fastqc/fastqc_report.html" target="CR13K9me3_S4_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13K9me3_S4_L002_R1_001_screen.html" target="CR13K9me3_S4_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CR6H33</td><td>ACTAAGAC</td>
+				<td align='right'>5,146,384</td><td align='right'>4.64</td>
+				<td align='right'>94.20  (R1) 92.54 (R2) </td>
+				<td align='right'>34.0  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6H33_S5_L002_R1_fastqc.zip" target="CR6H33_S5_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6H33_S5_L002_R1_fastqc/fastqc_report.html" target="CR6H33_S5_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6H33_S5_L002_R2_fastqc.zip" target="CR6H33_S5_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6H33_S5_L002_R2_fastqc/fastqc_report.html" target="CR6H33_S5_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6H33_S5_L002_R1_001_screen.html" target="CR6H33_S5_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CR6HRP</td><td>ACAGGTAT</td>
+				<td align='right'>4,025,321</td><td align='right'>3.63</td>
+				<td align='right'>95.22  (R1) 93.20 (R2) </td>
+				<td align='right'>34.1  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6HRP_S6_L002_R1_fastqc.zip" target="CR6HRP_S6_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6HRP_S6_L002_R1_fastqc/fastqc_report.html" target="CR6HRP_S6_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6HRP_S6_L002_R2_fastqc.zip" target="CR6HRP_S6_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6HRP_S6_L002_R2_fastqc/fastqc_report.html" target="CR6HRP_S6_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6HRP_S6_L002_R1_001_screen.html" target="CR6HRP_S6_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CR6K27M</td><td>CCAACATT</td>
+				<td align='right'>2,385,035</td><td align='right'>2.15</td>
+				<td align='right'>95.18  (R1) 93.51 (R2) </td>
+				<td align='right'>34.0  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6K27M_S7_L002_R1_fastqc.zip" target="CR6K27M_S7_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K27M_S7_L002_R1_fastqc/fastqc_report.html" target="CR6K27M_S7_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6K27M_S7_L002_R2_fastqc.zip" target="CR6K27M_S7_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K27M_S7_L002_R2_fastqc/fastqc_report.html" target="CR6K27M_S7_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6K27M_S7_L002_R1_001_screen.html" target="CR6K27M_S7_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CR6K4me3</td><td>GCCGTCGA</td>
+				<td align='right'>4,376,365</td><td align='right'>3.95</td>
+				<td align='right'>92.68  (R1) 91.53 (R2) </td>
+				<td align='right'>33.6  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6K4me3_S8_L002_R1_fastqc.zip" target="CR6K4me3_S8_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K4me3_S8_L002_R1_fastqc/fastqc_report.html" target="CR6K4me3_S8_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6K4me3_S8_L002_R2_fastqc.zip" target="CR6K4me3_S8_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K4me3_S8_L002_R2_fastqc/fastqc_report.html" target="CR6K4me3_S8_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6K4me3_S8_L002_R1_001_screen.html" target="CR6K4me3_S8_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CR6ML11</td><td>TATCTGCC</td>
+				<td align='right'>3,613,897</td><td align='right'>3.26</td>
+				<td align='right'>94.64  (R1) 93.03 (R2) </td>
+				<td align='right'>34.0  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6ML11_S9_L002_R1_fastqc.zip" target="CR6ML11_S9_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6ML11_S9_L002_R1_fastqc/fastqc_report.html" target="CR6ML11_S9_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6ML11_S9_L002_R2_fastqc.zip" target="CR6ML11_S9_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6ML11_S9_L002_R2_fastqc/fastqc_report.html" target="CR6ML11_S9_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6ML11_S9_L002_R1_001_screen.html" target="CR6ML11_S9_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CRmutEZH2</td><td>TTGTCTAT</td>
+				<td align='right'>4,846,793</td><td align='right'>4.37</td>
+				<td align='right'>95.67  (R1) 93.82 (R2) </td>
+				<td align='right'>34.1  (R1) 33.9 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutEZH2_S10_L002_R1_fastqc.zip" target="CRmutEZH2_S10_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutEZH2_S10_L002_R1_fastqc/fastqc_report.html" target="CRmutEZH2_S10_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutEZH2_S10_L002_R2_fastqc.zip" target="CRmutEZH2_S10_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutEZH2_S10_L002_R2_fastqc/fastqc_report.html" target="CRmutEZH2_S10_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutEZH2_S10_L002_R1_001_screen.html" target="CRmutEZH2_S10_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CRmutH33</td><td>AACAATGG</td>
+				<td align='right'>5,794,821</td><td align='right'>5.23</td>
+				<td align='right'>94.92  (R1) 93.19 (R2) </td>
+				<td align='right'>34.1  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutH33_S11_L002_R1_fastqc.zip" target="CRmutH33_S11_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutH33_S11_L002_R1_fastqc/fastqc_report.html" target="CRmutH33_S11_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutH33_S11_L002_R2_fastqc.zip" target="CRmutH33_S11_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutH33_S11_L002_R2_fastqc/fastqc_report.html" target="CRmutH33_S11_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutH33_S11_L002_R1_001_screen.html" target="CRmutH33_S11_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CRmutHRP</td><td>TGTAATCA</td>
+				<td align='right'>520,310</td><td align='right'>0.47</td>
+				<td align='right'>93.42  (R1) 78.87 (R2) </td>
+				<td align='right'>33.7  (R1) 31.3 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutHRP_S12_L002_R1_fastqc.zip" target="CRmutHRP_S12_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutHRP_S12_L002_R1_fastqc/fastqc_report.html" target="CRmutHRP_S12_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutHRP_S12_L002_R2_fastqc.zip" target="CRmutHRP_S12_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutHRP_S12_L002_R2_fastqc/fastqc_report.html" target="CRmutHRP_S12_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutHRP_S12_L002_R1_001_screen.html" target="CRmutHRP_S12_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CRmutK27M</td><td>ATTATCAA</td>
+				<td align='right'>3,722,254</td><td align='right'>3.36</td>
+				<td align='right'>95.00  (R1) 93.35 (R2) </td>
+				<td align='right'>34.0  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutK27M_S13_L002_R1_fastqc.zip" target="CRmutK27M_S13_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK27M_S13_L002_R1_fastqc/fastqc_report.html" target="CRmutK27M_S13_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutK27M_S13_L002_R2_fastqc.zip" target="CRmutK27M_S13_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK27M_S13_L002_R2_fastqc/fastqc_report.html" target="CRmutK27M_S13_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutK27M_S13_L002_R1_001_screen.html" target="CRmutK27M_S13_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CRmutK4</td><td>CTATGCGT</td>
+				<td align='right'>10,770,058</td><td align='right'>9.71</td>
+				<td align='right'>93.01  (R1) 91.79 (R2) </td>
+				<td align='right'>33.7  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutK4_S14_L002_R1_fastqc.zip" target="CRmutK4_S14_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK4_S14_L002_R1_fastqc/fastqc_report.html" target="CRmutK4_S14_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutK4_S14_L002_R2_fastqc.zip" target="CRmutK4_S14_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK4_S14_L002_R2_fastqc/fastqc_report.html" target="CRmutK4_S14_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutK4_S14_L002_R1_001_screen.html" target="CRmutK4_S14_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CRmutMLL1</td><td>GTCCACAG</td>
+				<td align='right'>4,459,046</td><td align='right'>4.02</td>
+				<td align='right'>94.95  (R1) 93.13 (R2) </td>
+				<td align='right'>34.0  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutMLL1_S15_L002_R1_fastqc.zip" target="CRmutMLL1_S15_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutMLL1_S15_L002_R1_fastqc/fastqc_report.html" target="CRmutMLL1_S15_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutMLL1_S15_L002_R2_fastqc.zip" target="CRmutMLL1_S15_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutMLL1_S15_L002_R2_fastqc/fastqc_report.html" target="CRmutMLL1_S15_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutMLL1_S15_L002_R1_001_screen.html" target="CRmutMLL1_S15_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CRwtEZH2</td><td>CTAACTCG</td>
+				<td align='right'>6,712,791</td><td align='right'>6.05</td>
+				<td align='right'>95.43  (R1) 93.60 (R2) </td>
+				<td align='right'>34.1  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtEZH2_S16_L002_R1_fastqc.zip" target="CRwtEZH2_S16_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtEZH2_S16_L002_R1_fastqc/fastqc_report.html" target="CRwtEZH2_S16_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtEZH2_S16_L002_R2_fastqc.zip" target="CRwtEZH2_S16_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtEZH2_S16_L002_R2_fastqc/fastqc_report.html" target="CRwtEZH2_S16_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtEZH2_S16_L002_R1_001_screen.html" target="CRwtEZH2_S16_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CRwtH33</td><td>GTAACATC</td>
+				<td align='right'>6,695,287</td><td align='right'>6.04</td>
+				<td align='right'>95.26  (R1) 93.26 (R2) </td>
+				<td align='right'>34.1  (R1) 33.8 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtH33_S17_L002_R1_fastqc.zip" target="CRwtH33_S17_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtH33_S17_L002_R1_fastqc/fastqc_report.html" target="CRwtH33_S17_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtH33_S17_L002_R2_fastqc.zip" target="CRwtH33_S17_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtH33_S17_L002_R2_fastqc/fastqc_report.html" target="CRwtH33_S17_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtH33_S17_L002_R1_001_screen.html" target="CRwtH33_S17_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CRwtHRP</td><td>CGCCTTCC</td>
+				<td align='right'>6,171,245</td><td align='right'>5.57</td>
+				<td align='right'>94.84  (R1) 92.29 (R2) </td>
+				<td align='right'>34.0  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtHRP_S18_L002_R1_fastqc.zip" target="CRwtHRP_S18_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtHRP_S18_L002_R1_fastqc/fastqc_report.html" target="CRwtHRP_S18_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtHRP_S18_L002_R2_fastqc.zip" target="CRwtHRP_S18_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtHRP_S18_L002_R2_fastqc/fastqc_report.html" target="CRwtHRP_S18_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtHRP_S18_L002_R1_001_screen.html" target="CRwtHRP_S18_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CRwtK27M</td><td>GCCTAGCC</td>
+				<td align='right'>7,050,997</td><td align='right'>6.36</td>
+				<td align='right'>94.31  (R1) 92.66 (R2) </td>
+				<td align='right'>33.9  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtK27M_S19_L002_R1_fastqc.zip" target="CRwtK27M_S19_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK27M_S19_L002_R1_fastqc/fastqc_report.html" target="CRwtK27M_S19_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtK27M_S19_L002_R2_fastqc.zip" target="CRwtK27M_S19_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK27M_S19_L002_R2_fastqc/fastqc_report.html" target="CRwtK27M_S19_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtK27M_S19_L002_R1_001_screen.html" target="CRwtK27M_S19_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CRwtK4</td><td>TGCTGCTG</td>
+				<td align='right'>6,212,497</td><td align='right'>5.6</td>
+				<td align='right'>93.28  (R1) 91.79 (R2) </td>
+				<td align='right'>33.7  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtK4_S20_L002_R1_fastqc.zip" target="CRwtK4_S20_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK4_S20_L002_R1_fastqc/fastqc_report.html" target="CRwtK4_S20_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtK4_S20_L002_R2_fastqc.zip" target="CRwtK4_S20_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK4_S20_L002_R2_fastqc/fastqc_report.html" target="CRwtK4_S20_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtK4_S20_L002_R1_001_screen.html" target="CRwtK4_S20_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>2</td><td>CRwtMLL1</td><td>AGGTAAGG</td>
+				<td align='right'>7,494,519</td><td align='right'>6.76</td>
+				<td align='right'>95.04  (R1) 92.79 (R2) </td>
+				<td align='right'>34.1  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtMLL1_S21_L002_R1_fastqc.zip" target="CRwtMLL1_S21_L002_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtMLL1_S21_L002_R1_fastqc/fastqc_report.html" target="CRwtMLL1_S21_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtMLL1_S21_L002_R2_fastqc.zip" target="CRwtMLL1_S21_L002_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtMLL1_S21_L002_R2_fastqc/fastqc_report.html" target="CRwtMLL1_S21_L002_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtMLL1_S21_L002_R1_001_screen.html" target="CRwtMLL1_S21_L002_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor='yellow'>
+				<td>2</td><td>Undetermined Indices</td><td>Undetermined</td>
+				<td align='right'>3,832,666</td><td align='right'>3.46</td>
+				<td/><td/><td/><td/>
+			<!--<td/>-->
+				  
+			</tr>
+		</table>
+		</div><!-- basic-params -->
+	<div id="lane3">
+		<br>
+		<h2>Lane 3</h2>
+		<h3>Mean per base sequence quality</h3>
+		<h4>Read 1</h4>
+		<img src="./resources/images/L003_R1_q_scores.png" style="width:1100px;" />
+		<h4>Read 2</h4>
+		<img src="./resources/images/L003_R2_q_scores.png" style="width:1100px;" />
+		<br> 
+		<br>
+		<div class="pf-reads" id="pf3">
+			<h3>#PF reads per sample</h3>
+			<img src="./resources/images/L003_pf_reads.png" style="width:1000px;"/>
+		</div>
+		<!-- TODO
+		<div>
+			<h3>Control Metrics</h3>
+			<table class="fc-stats">
+			<tbody>
+				<tr><td>Phi-X Spike</td><td>1%</td></tr>
+				<tr><td>Reads aligned to Phi-X</td><td>0.8%</td></tr>
+				<tr><td>Total number of PF reads</td><td>91,101,826</td></tr>
+				<tr><td>Of which undetermined sequences</td><td class="failed">42.6%</td></tr>
+				<tr><td>Error rate</td><td> -???-</td></tr>
+			</tbody>
+			</table>
+		</div> -->
+		<p style="clear:both;"></p>
+		<br>
+		<div class="basic-params" id="basic3">
+		<h3>Basic parameters per sample</h3>
+		<table border='0'>
+			<tr valign='top'>
+				<td><b>Lane</b></td>
+				<td><b>Sample</b></td>
+				<td><b>Index</b></td>
+				<td>
+					<span title="The number of passed filter clusters that were assigned to each sample after demultiplexing ("Undetermined" are clusters that were not assigned to any of the samples).">
+					<b># PF Clusters</b><img class="icon" src="./resources/images/info.png" border='0'></span>
+				</td>
+				<td>
+					<span title="The percentage of passed filter clusters per sample (out of all passed filter clusters in the lane)">
+					<b>% Clusters<img class="icon" src="./resources/images/info.png" border='0'><br>per sample</b>
+				</td>
+				<td>
+					<span title="The percentage of bases &#8805;Q30 is averaged across all sequences assigned to the sample (separately for read 1 and read 2 if paired-end), not on a per-sequence or per-cycle basis. This data is derived from the FastQC reports">
+					<b>%&#8805;Q30</b><img class="icon" src="./resources/images/info.png" border='0'></span>
+				</td>
+				<td>
+					<span title="The mean quality score per sequence, calculated over all bases (separately for read 1 and read 2 if paired-end). The scores (called Phred quality scores) are defined as: Q = -10*log10(P), where P is the probability of an incorrect base call. This data is derived from the FastQC reports">
+					<b>Mean<img class="icon" src="./resources/images/info.png" border='0'><br>Qscore</b></td>
+				<td><b>FastQC Analysis</b></td>
+				<td><b>Fastq_screen Analysis</b></td>
+			</tr>
+			 
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CR13HP1a</td><td>ACAGTTGA</td>
+				<td align='right'>4,403,066</td><td align='right'>3.94</td>
+				<td align='right'>93.84  (R1) 92.16 (R2) </td>
+				<td align='right'>33.8  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13HP1a_S1_L003_R1_fastqc.zip" target="CR13HP1a_S1_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HP1a_S1_L003_R1_fastqc/fastqc_report.html" target="CR13HP1a_S1_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13HP1a_S1_L003_R2_fastqc.zip" target="CR13HP1a_S1_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HP1a_S1_L003_R2_fastqc/fastqc_report.html" target="CR13HP1a_S1_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13HP1a_S1_L003_R1_001_screen.html" target="CR13HP1a_S1_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CR13HRP</td><td>ATTCCTCT</td>
+				<td align='right'>4,224,660</td><td align='right'>3.78</td>
+				<td align='right'>94.02  (R1) 92.11 (R2) </td>
+				<td align='right'>33.8  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13HRP_S2_L003_R1_fastqc.zip" target="CR13HRP_S2_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HRP_S2_L003_R1_fastqc/fastqc_report.html" target="CR13HRP_S2_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13HRP_S2_L003_R2_fastqc.zip" target="CR13HRP_S2_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HRP_S2_L003_R2_fastqc/fastqc_report.html" target="CR13HRP_S2_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13HRP_S2_L003_R1_001_screen.html" target="CR13HRP_S2_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CR13K27M</td><td>GAAGGAAG</td>
+				<td align='right'>3,331,433</td><td align='right'>2.98</td>
+				<td align='right'>94.36  (R1) 92.70 (R2) </td>
+				<td align='right'>33.8  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13K27M_S3_L003_R1_fastqc.zip" target="CR13K27M_S3_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K27M_S3_L003_R1_fastqc/fastqc_report.html" target="CR13K27M_S3_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13K27M_S3_L003_R2_fastqc.zip" target="CR13K27M_S3_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K27M_S3_L003_R2_fastqc/fastqc_report.html" target="CR13K27M_S3_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13K27M_S3_L003_R1_001_screen.html" target="CR13K27M_S3_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CR13K9me3</td><td>TCGCTAGA</td>
+				<td align='right'>5,285,948</td><td align='right'>4.73</td>
+				<td align='right'>94.03  (R1) 92.29 (R2) </td>
+				<td align='right'>33.8  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13K9me3_S4_L003_R1_fastqc.zip" target="CR13K9me3_S4_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K9me3_S4_L003_R1_fastqc/fastqc_report.html" target="CR13K9me3_S4_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13K9me3_S4_L003_R2_fastqc.zip" target="CR13K9me3_S4_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K9me3_S4_L003_R2_fastqc/fastqc_report.html" target="CR13K9me3_S4_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13K9me3_S4_L003_R1_001_screen.html" target="CR13K9me3_S4_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CR6H33</td><td>ACTAAGAC</td>
+				<td align='right'>5,206,823</td><td align='right'>4.66</td>
+				<td align='right'>93.27  (R1) 91.97 (R2) </td>
+				<td align='right'>33.8  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6H33_S5_L003_R1_fastqc.zip" target="CR6H33_S5_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6H33_S5_L003_R1_fastqc/fastqc_report.html" target="CR6H33_S5_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6H33_S5_L003_R2_fastqc.zip" target="CR6H33_S5_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6H33_S5_L003_R2_fastqc/fastqc_report.html" target="CR6H33_S5_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6H33_S5_L003_R1_001_screen.html" target="CR6H33_S5_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CR6HRP</td><td>ACAGGTAT</td>
+				<td align='right'>4,076,978</td><td align='right'>3.65</td>
+				<td align='right'>94.45  (R1) 92.64 (R2) </td>
+				<td align='right'>33.9  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6HRP_S6_L003_R1_fastqc.zip" target="CR6HRP_S6_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6HRP_S6_L003_R1_fastqc/fastqc_report.html" target="CR6HRP_S6_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6HRP_S6_L003_R2_fastqc.zip" target="CR6HRP_S6_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6HRP_S6_L003_R2_fastqc/fastqc_report.html" target="CR6HRP_S6_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6HRP_S6_L003_R1_001_screen.html" target="CR6HRP_S6_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CR6K27M</td><td>CCAACATT</td>
+				<td align='right'>2,407,185</td><td align='right'>2.15</td>
+				<td align='right'>94.30  (R1) 92.90 (R2) </td>
+				<td align='right'>33.8  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6K27M_S7_L003_R1_fastqc.zip" target="CR6K27M_S7_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K27M_S7_L003_R1_fastqc/fastqc_report.html" target="CR6K27M_S7_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6K27M_S7_L003_R2_fastqc.zip" target="CR6K27M_S7_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K27M_S7_L003_R2_fastqc/fastqc_report.html" target="CR6K27M_S7_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6K27M_S7_L003_R1_001_screen.html" target="CR6K27M_S7_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CR6K4me3</td><td>GCCGTCGA</td>
+				<td align='right'>4,404,113</td><td align='right'>3.94</td>
+				<td align='right'>91.19  (R1) 90.38 (R2) </td>
+				<td align='right'>33.3  (R1) 33.2 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6K4me3_S8_L003_R1_fastqc.zip" target="CR6K4me3_S8_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K4me3_S8_L003_R1_fastqc/fastqc_report.html" target="CR6K4me3_S8_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6K4me3_S8_L003_R2_fastqc.zip" target="CR6K4me3_S8_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K4me3_S8_L003_R2_fastqc/fastqc_report.html" target="CR6K4me3_S8_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6K4me3_S8_L003_R1_001_screen.html" target="CR6K4me3_S8_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CR6ML11</td><td>TATCTGCC</td>
+				<td align='right'>3,644,923</td><td align='right'>3.26</td>
+				<td align='right'>93.66  (R1) 92.30 (R2) </td>
+				<td align='right'>33.8  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6ML11_S9_L003_R1_fastqc.zip" target="CR6ML11_S9_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6ML11_S9_L003_R1_fastqc/fastqc_report.html" target="CR6ML11_S9_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6ML11_S9_L003_R2_fastqc.zip" target="CR6ML11_S9_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6ML11_S9_L003_R2_fastqc/fastqc_report.html" target="CR6ML11_S9_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6ML11_S9_L003_R1_001_screen.html" target="CR6ML11_S9_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CRmutEZH2</td><td>TTGTCTAT</td>
+				<td align='right'>4,903,173</td><td align='right'>4.39</td>
+				<td align='right'>94.93  (R1) 93.28 (R2) </td>
+				<td align='right'>33.9  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutEZH2_S10_L003_R1_fastqc.zip" target="CRmutEZH2_S10_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutEZH2_S10_L003_R1_fastqc/fastqc_report.html" target="CRmutEZH2_S10_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutEZH2_S10_L003_R2_fastqc.zip" target="CRmutEZH2_S10_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutEZH2_S10_L003_R2_fastqc/fastqc_report.html" target="CRmutEZH2_S10_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutEZH2_S10_L003_R1_001_screen.html" target="CRmutEZH2_S10_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CRmutH33</td><td>AACAATGG</td>
+				<td align='right'>5,865,859</td><td align='right'>5.25</td>
+				<td align='right'>94.08  (R1) 92.66 (R2) </td>
+				<td align='right'>33.9  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutH33_S11_L003_R1_fastqc.zip" target="CRmutH33_S11_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutH33_S11_L003_R1_fastqc/fastqc_report.html" target="CRmutH33_S11_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutH33_S11_L003_R2_fastqc.zip" target="CRmutH33_S11_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutH33_S11_L003_R2_fastqc/fastqc_report.html" target="CRmutH33_S11_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutH33_S11_L003_R1_001_screen.html" target="CRmutH33_S11_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CRmutHRP</td><td>TGTAATCA</td>
+				<td align='right'>525,657</td><td align='right'>0.47</td>
+				<td align='right'>90.99  (R1) 78.43 (R2) </td>
+				<td align='right'>33.4  (R1) 31.2 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutHRP_S12_L003_R1_fastqc.zip" target="CRmutHRP_S12_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutHRP_S12_L003_R1_fastqc/fastqc_report.html" target="CRmutHRP_S12_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutHRP_S12_L003_R2_fastqc.zip" target="CRmutHRP_S12_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutHRP_S12_L003_R2_fastqc/fastqc_report.html" target="CRmutHRP_S12_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutHRP_S12_L003_R1_001_screen.html" target="CRmutHRP_S12_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CRmutK27M</td><td>ATTATCAA</td>
+				<td align='right'>3,759,264</td><td align='right'>3.36</td>
+				<td align='right'>94.09  (R1) 92.71 (R2) </td>
+				<td align='right'>33.8  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutK27M_S13_L003_R1_fastqc.zip" target="CRmutK27M_S13_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK27M_S13_L003_R1_fastqc/fastqc_report.html" target="CRmutK27M_S13_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutK27M_S13_L003_R2_fastqc.zip" target="CRmutK27M_S13_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK27M_S13_L003_R2_fastqc/fastqc_report.html" target="CRmutK27M_S13_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutK27M_S13_L003_R1_001_screen.html" target="CRmutK27M_S13_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CRmutK4</td><td>CTATGCGT</td>
+				<td align='right'>10,846,362</td><td align='right'>9.71</td>
+				<td align='right'>91.61  (R1) 90.85 (R2) </td>
+				<td align='right'>33.5  (R1) 33.3 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutK4_S14_L003_R1_fastqc.zip" target="CRmutK4_S14_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK4_S14_L003_R1_fastqc/fastqc_report.html" target="CRmutK4_S14_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutK4_S14_L003_R2_fastqc.zip" target="CRmutK4_S14_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK4_S14_L003_R2_fastqc/fastqc_report.html" target="CRmutK4_S14_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutK4_S14_L003_R1_001_screen.html" target="CRmutK4_S14_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CRmutMLL1</td><td>GTCCACAG</td>
+				<td align='right'>4,505,807</td><td align='right'>4.03</td>
+				<td align='right'>94.06  (R1) 92.50 (R2) </td>
+				<td align='right'>33.8  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutMLL1_S15_L003_R1_fastqc.zip" target="CRmutMLL1_S15_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutMLL1_S15_L003_R1_fastqc/fastqc_report.html" target="CRmutMLL1_S15_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutMLL1_S15_L003_R2_fastqc.zip" target="CRmutMLL1_S15_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutMLL1_S15_L003_R2_fastqc/fastqc_report.html" target="CRmutMLL1_S15_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutMLL1_S15_L003_R1_001_screen.html" target="CRmutMLL1_S15_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CRwtEZH2</td><td>CTAACTCG</td>
+				<td align='right'>6,784,673</td><td align='right'>6.07</td>
+				<td align='right'>94.66  (R1) 93.08 (R2) </td>
+				<td align='right'>33.9  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtEZH2_S16_L003_R1_fastqc.zip" target="CRwtEZH2_S16_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtEZH2_S16_L003_R1_fastqc/fastqc_report.html" target="CRwtEZH2_S16_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtEZH2_S16_L003_R2_fastqc.zip" target="CRwtEZH2_S16_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtEZH2_S16_L003_R2_fastqc/fastqc_report.html" target="CRwtEZH2_S16_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtEZH2_S16_L003_R1_001_screen.html" target="CRwtEZH2_S16_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CRwtH33</td><td>GTAACATC</td>
+				<td align='right'>6,773,109</td><td align='right'>6.06</td>
+				<td align='right'>94.41  (R1) 92.68 (R2) </td>
+				<td align='right'>33.9  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtH33_S17_L003_R1_fastqc.zip" target="CRwtH33_S17_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtH33_S17_L003_R1_fastqc/fastqc_report.html" target="CRwtH33_S17_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtH33_S17_L003_R2_fastqc.zip" target="CRwtH33_S17_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtH33_S17_L003_R2_fastqc/fastqc_report.html" target="CRwtH33_S17_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtH33_S17_L003_R1_001_screen.html" target="CRwtH33_S17_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CRwtHRP</td><td>CGCCTTCC</td>
+				<td align='right'>6,234,788</td><td align='right'>5.58</td>
+				<td align='right'>93.81  (R1) 91.79 (R2) </td>
+				<td align='right'>33.8  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtHRP_S18_L003_R1_fastqc.zip" target="CRwtHRP_S18_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtHRP_S18_L003_R1_fastqc/fastqc_report.html" target="CRwtHRP_S18_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtHRP_S18_L003_R2_fastqc.zip" target="CRwtHRP_S18_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtHRP_S18_L003_R2_fastqc/fastqc_report.html" target="CRwtHRP_S18_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtHRP_S18_L003_R1_001_screen.html" target="CRwtHRP_S18_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CRwtK27M</td><td>GCCTAGCC</td>
+				<td align='right'>7,120,816</td><td align='right'>6.37</td>
+				<td align='right'>93.33  (R1) 92.01 (R2) </td>
+				<td align='right'>33.7  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtK27M_S19_L003_R1_fastqc.zip" target="CRwtK27M_S19_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK27M_S19_L003_R1_fastqc/fastqc_report.html" target="CRwtK27M_S19_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtK27M_S19_L003_R2_fastqc.zip" target="CRwtK27M_S19_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK27M_S19_L003_R2_fastqc/fastqc_report.html" target="CRwtK27M_S19_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtK27M_S19_L003_R1_001_screen.html" target="CRwtK27M_S19_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CRwtK4</td><td>TGCTGCTG</td>
+				<td align='right'>6,259,851</td><td align='right'>5.6</td>
+				<td align='right'>91.90  (R1) 90.84 (R2) </td>
+				<td align='right'>33.5  (R1) 33.3 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtK4_S20_L003_R1_fastqc.zip" target="CRwtK4_S20_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK4_S20_L003_R1_fastqc/fastqc_report.html" target="CRwtK4_S20_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtK4_S20_L003_R2_fastqc.zip" target="CRwtK4_S20_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK4_S20_L003_R2_fastqc/fastqc_report.html" target="CRwtK4_S20_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtK4_S20_L003_R1_001_screen.html" target="CRwtK4_S20_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>3</td><td>CRwtMLL1</td><td>AGGTAAGG</td>
+				<td align='right'>7,591,027</td><td align='right'>6.79</td>
+				<td align='right'>94.15  (R1) 92.22 (R2) </td>
+				<td align='right'>33.9  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtMLL1_S21_L003_R1_fastqc.zip" target="CRwtMLL1_S21_L003_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtMLL1_S21_L003_R1_fastqc/fastqc_report.html" target="CRwtMLL1_S21_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtMLL1_S21_L003_R2_fastqc.zip" target="CRwtMLL1_S21_L003_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtMLL1_S21_L003_R2_fastqc/fastqc_report.html" target="CRwtMLL1_S21_L003_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtMLL1_S21_L003_R1_001_screen.html" target="CRwtMLL1_S21_L003_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor='yellow'>
+				<td>3</td><td>Undetermined Indices</td><td>Undetermined</td>
+				<td align='right'>3,586,961</td><td align='right'>3.21</td>
+				<td/><td/><td/><td/>
+			<!--<td/>-->
+				  
+			</tr>
+		</table>
+		</div><!-- basic-params -->
+	<div id="lane4">
+		<br>
+		<h2>Lane 4</h2>
+		<h3>Mean per base sequence quality</h3>
+		<h4>Read 1</h4>
+		<img src="./resources/images/L004_R1_q_scores.png" style="width:1100px;" />
+		<h4>Read 2</h4>
+		<img src="./resources/images/L004_R2_q_scores.png" style="width:1100px;" />
+		<br> 
+		<br>
+		<div class="pf-reads" id="pf4">
+			<h3>#PF reads per sample</h3>
+			<img src="./resources/images/L004_pf_reads.png" style="width:1000px;"/>
+		</div>
+		<!-- TODO
+		<div>
+			<h3>Control Metrics</h3>
+			<table class="fc-stats">
+			<tbody>
+				<tr><td>Phi-X Spike</td><td>1%</td></tr>
+				<tr><td>Reads aligned to Phi-X</td><td>0.8%</td></tr>
+				<tr><td>Total number of PF reads</td><td>91,101,826</td></tr>
+				<tr><td>Of which undetermined sequences</td><td class="failed">42.6%</td></tr>
+				<tr><td>Error rate</td><td> -???-</td></tr>
+			</tbody>
+			</table>
+		</div> -->
+		<p style="clear:both;"></p>
+		<br>
+		<div class="basic-params" id="basic4">
+		<h3>Basic parameters per sample</h3>
+		<table border='0'>
+			<tr valign='top'>
+				<td><b>Lane</b></td>
+				<td><b>Sample</b></td>
+				<td><b>Index</b></td>
+				<td>
+					<span title="The number of passed filter clusters that were assigned to each sample after demultiplexing ("Undetermined" are clusters that were not assigned to any of the samples).">
+					<b># PF Clusters</b><img class="icon" src="./resources/images/info.png" border='0'></span>
+				</td>
+				<td>
+					<span title="The percentage of passed filter clusters per sample (out of all passed filter clusters in the lane)">
+					<b>% Clusters<img class="icon" src="./resources/images/info.png" border='0'><br>per sample</b>
+				</td>
+				<td>
+					<span title="The percentage of bases &#8805;Q30 is averaged across all sequences assigned to the sample (separately for read 1 and read 2 if paired-end), not on a per-sequence or per-cycle basis. This data is derived from the FastQC reports">
+					<b>%&#8805;Q30</b><img class="icon" src="./resources/images/info.png" border='0'></span>
+				</td>
+				<td>
+					<span title="The mean quality score per sequence, calculated over all bases (separately for read 1 and read 2 if paired-end). The scores (called Phred quality scores) are defined as: Q = -10*log10(P), where P is the probability of an incorrect base call. This data is derived from the FastQC reports">
+					<b>Mean<img class="icon" src="./resources/images/info.png" border='0'><br>Qscore</b></td>
+				<td><b>FastQC Analysis</b></td>
+				<td><b>Fastq_screen Analysis</b></td>
+			</tr>
+			 
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CR13HP1a</td><td>ACAGTTGA</td>
+				<td align='right'>4,307,749</td><td align='right'>3.92</td>
+				<td align='right'>94.17  (R1) 92.24 (R2) </td>
+				<td align='right'>33.9  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13HP1a_S1_L004_R1_fastqc.zip" target="CR13HP1a_S1_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HP1a_S1_L004_R1_fastqc/fastqc_report.html" target="CR13HP1a_S1_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13HP1a_S1_L004_R2_fastqc.zip" target="CR13HP1a_S1_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HP1a_S1_L004_R2_fastqc/fastqc_report.html" target="CR13HP1a_S1_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13HP1a_S1_L004_R1_001_screen.html" target="CR13HP1a_S1_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CR13HRP</td><td>ATTCCTCT</td>
+				<td align='right'>4,139,831</td><td align='right'>3.76</td>
+				<td align='right'>94.71  (R1) 92.27 (R2) </td>
+				<td align='right'>33.9  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13HRP_S2_L004_R1_fastqc.zip" target="CR13HRP_S2_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HRP_S2_L004_R1_fastqc/fastqc_report.html" target="CR13HRP_S2_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13HRP_S2_L004_R2_fastqc.zip" target="CR13HRP_S2_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13HRP_S2_L004_R2_fastqc/fastqc_report.html" target="CR13HRP_S2_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13HRP_S2_L004_R1_001_screen.html" target="CR13HRP_S2_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CR13K27M</td><td>GAAGGAAG</td>
+				<td align='right'>3,249,929</td><td align='right'>2.95</td>
+				<td align='right'>94.75  (R1) 92.84 (R2) </td>
+				<td align='right'>33.9  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13K27M_S3_L004_R1_fastqc.zip" target="CR13K27M_S3_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K27M_S3_L004_R1_fastqc/fastqc_report.html" target="CR13K27M_S3_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13K27M_S3_L004_R2_fastqc.zip" target="CR13K27M_S3_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K27M_S3_L004_R2_fastqc/fastqc_report.html" target="CR13K27M_S3_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13K27M_S3_L004_R1_001_screen.html" target="CR13K27M_S3_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CR13K9me3</td><td>TCGCTAGA</td>
+				<td align='right'>5,172,128</td><td align='right'>4.7</td>
+				<td align='right'>94.29  (R1) 92.33 (R2) </td>
+				<td align='right'>33.9  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR13K9me3_S4_L004_R1_fastqc.zip" target="CR13K9me3_S4_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K9me3_S4_L004_R1_fastqc/fastqc_report.html" target="CR13K9me3_S4_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR13K9me3_S4_L004_R2_fastqc.zip" target="CR13K9me3_S4_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR13K9me3_S4_L004_R2_fastqc/fastqc_report.html" target="CR13K9me3_S4_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR13K9me3_S4_L004_R1_001_screen.html" target="CR13K9me3_S4_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CR6H33</td><td>ACTAAGAC</td>
+				<td align='right'>5,090,116</td><td align='right'>4.63</td>
+				<td align='right'>93.73  (R1) 92.07 (R2) </td>
+				<td align='right'>33.8  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6H33_S5_L004_R1_fastqc.zip" target="CR6H33_S5_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6H33_S5_L004_R1_fastqc/fastqc_report.html" target="CR6H33_S5_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6H33_S5_L004_R2_fastqc.zip" target="CR6H33_S5_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6H33_S5_L004_R2_fastqc/fastqc_report.html" target="CR6H33_S5_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6H33_S5_L004_R1_001_screen.html" target="CR6H33_S5_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CR6HRP</td><td>ACAGGTAT</td>
+				<td align='right'>3,986,064</td><td align='right'>3.62</td>
+				<td align='right'>94.84  (R1) 92.79 (R2) </td>
+				<td align='right'>33.9  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6HRP_S6_L004_R1_fastqc.zip" target="CR6HRP_S6_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6HRP_S6_L004_R1_fastqc/fastqc_report.html" target="CR6HRP_S6_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6HRP_S6_L004_R2_fastqc.zip" target="CR6HRP_S6_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6HRP_S6_L004_R2_fastqc/fastqc_report.html" target="CR6HRP_S6_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6HRP_S6_L004_R1_001_screen.html" target="CR6HRP_S6_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CR6K27M</td><td>CCAACATT</td>
+				<td align='right'>2,358,072</td><td align='right'>2.14</td>
+				<td align='right'>94.62  (R1) 92.91 (R2) </td>
+				<td align='right'>33.8  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6K27M_S7_L004_R1_fastqc.zip" target="CR6K27M_S7_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K27M_S7_L004_R1_fastqc/fastqc_report.html" target="CR6K27M_S7_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6K27M_S7_L004_R2_fastqc.zip" target="CR6K27M_S7_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K27M_S7_L004_R2_fastqc/fastqc_report.html" target="CR6K27M_S7_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6K27M_S7_L004_R1_001_screen.html" target="CR6K27M_S7_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CR6K4me3</td><td>GCCGTCGA</td>
+				<td align='right'>4,319,886</td><td align='right'>3.93</td>
+				<td align='right'>92.04  (R1) 90.88 (R2) </td>
+				<td align='right'>33.5  (R1) 33.3 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6K4me3_S8_L004_R1_fastqc.zip" target="CR6K4me3_S8_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K4me3_S8_L004_R1_fastqc/fastqc_report.html" target="CR6K4me3_S8_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6K4me3_S8_L004_R2_fastqc.zip" target="CR6K4me3_S8_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6K4me3_S8_L004_R2_fastqc/fastqc_report.html" target="CR6K4me3_S8_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6K4me3_S8_L004_R1_001_screen.html" target="CR6K4me3_S8_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CR6ML11</td><td>TATCTGCC</td>
+				<td align='right'>3,573,241</td><td align='right'>3.25</td>
+				<td align='right'>94.13  (R1) 92.48 (R2) </td>
+				<td align='right'>33.8  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CR6ML11_S9_L004_R1_fastqc.zip" target="CR6ML11_S9_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6ML11_S9_L004_R1_fastqc/fastqc_report.html" target="CR6ML11_S9_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CR6ML11_S9_L004_R2_fastqc.zip" target="CR6ML11_S9_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CR6ML11_S9_L004_R2_fastqc/fastqc_report.html" target="CR6ML11_S9_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CR6ML11_S9_L004_R1_001_screen.html" target="CR6ML11_S9_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CRmutEZH2</td><td>TTGTCTAT</td>
+				<td align='right'>4,799,290</td><td align='right'>4.36</td>
+				<td align='right'>95.24  (R1) 93.25 (R2) </td>
+				<td align='right'>34.0  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutEZH2_S10_L004_R1_fastqc.zip" target="CRmutEZH2_S10_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutEZH2_S10_L004_R1_fastqc/fastqc_report.html" target="CRmutEZH2_S10_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutEZH2_S10_L004_R2_fastqc.zip" target="CRmutEZH2_S10_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutEZH2_S10_L004_R2_fastqc/fastqc_report.html" target="CRmutEZH2_S10_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutEZH2_S10_L004_R1_001_screen.html" target="CRmutEZH2_S10_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CRmutH33</td><td>AACAATGG</td>
+				<td align='right'>5,740,636</td><td align='right'>5.22</td>
+				<td align='right'>94.52  (R1) 92.72 (R2) </td>
+				<td align='right'>33.9  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutH33_S11_L004_R1_fastqc.zip" target="CRmutH33_S11_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutH33_S11_L004_R1_fastqc/fastqc_report.html" target="CRmutH33_S11_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutH33_S11_L004_R2_fastqc.zip" target="CRmutH33_S11_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutH33_S11_L004_R2_fastqc/fastqc_report.html" target="CRmutH33_S11_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutH33_S11_L004_R1_001_screen.html" target="CRmutH33_S11_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CRmutHRP</td><td>TGTAATCA</td>
+				<td align='right'>517,551</td><td align='right'>0.47</td>
+				<td align='right'>92.89  (R1) 78.10 (R2) </td>
+				<td align='right'>33.5  (R1) 31.2 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutHRP_S12_L004_R1_fastqc.zip" target="CRmutHRP_S12_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutHRP_S12_L004_R1_fastqc/fastqc_report.html" target="CRmutHRP_S12_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutHRP_S12_L004_R2_fastqc.zip" target="CRmutHRP_S12_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutHRP_S12_L004_R2_fastqc/fastqc_report.html" target="CRmutHRP_S12_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutHRP_S12_L004_R1_001_screen.html" target="CRmutHRP_S12_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CRmutK27M</td><td>ATTATCAA</td>
+				<td align='right'>3,678,080</td><td align='right'>3.34</td>
+				<td align='right'>94.45  (R1) 92.78 (R2) </td>
+				<td align='right'>33.8  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutK27M_S13_L004_R1_fastqc.zip" target="CRmutK27M_S13_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK27M_S13_L004_R1_fastqc/fastqc_report.html" target="CRmutK27M_S13_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutK27M_S13_L004_R2_fastqc.zip" target="CRmutK27M_S13_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK27M_S13_L004_R2_fastqc/fastqc_report.html" target="CRmutK27M_S13_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutK27M_S13_L004_R1_001_screen.html" target="CRmutK27M_S13_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CRmutK4</td><td>CTATGCGT</td>
+				<td align='right'>10,651,754</td><td align='right'>9.68</td>
+				<td align='right'>92.50  (R1) 91.28 (R2) </td>
+				<td align='right'>33.6  (R1) 33.4 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutK4_S14_L004_R1_fastqc.zip" target="CRmutK4_S14_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK4_S14_L004_R1_fastqc/fastqc_report.html" target="CRmutK4_S14_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutK4_S14_L004_R2_fastqc.zip" target="CRmutK4_S14_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutK4_S14_L004_R2_fastqc/fastqc_report.html" target="CRmutK4_S14_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutK4_S14_L004_R1_001_screen.html" target="CRmutK4_S14_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CRmutMLL1</td><td>GTCCACAG</td>
+				<td align='right'>4,415,932</td><td align='right'>4.02</td>
+				<td align='right'>94.50  (R1) 92.67 (R2) </td>
+				<td align='right'>33.8  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRmutMLL1_S15_L004_R1_fastqc.zip" target="CRmutMLL1_S15_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutMLL1_S15_L004_R1_fastqc/fastqc_report.html" target="CRmutMLL1_S15_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRmutMLL1_S15_L004_R2_fastqc.zip" target="CRmutMLL1_S15_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRmutMLL1_S15_L004_R2_fastqc/fastqc_report.html" target="CRmutMLL1_S15_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRmutMLL1_S15_L004_R1_001_screen.html" target="CRmutMLL1_S15_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CRwtEZH2</td><td>CTAACTCG</td>
+				<td align='right'>6,646,724</td><td align='right'>6.04</td>
+				<td align='right'>94.99  (R1) 93.12 (R2) </td>
+				<td align='right'>33.9  (R1) 33.7 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtEZH2_S16_L004_R1_fastqc.zip" target="CRwtEZH2_S16_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtEZH2_S16_L004_R1_fastqc/fastqc_report.html" target="CRwtEZH2_S16_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtEZH2_S16_L004_R2_fastqc.zip" target="CRwtEZH2_S16_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtEZH2_S16_L004_R2_fastqc/fastqc_report.html" target="CRwtEZH2_S16_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtEZH2_S16_L004_R1_001_screen.html" target="CRwtEZH2_S16_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CRwtH33</td><td>GTAACATC</td>
+				<td align='right'>6,635,667</td><td align='right'>6.03</td>
+				<td align='right'>94.84  (R1) 92.82 (R2) </td>
+				<td align='right'>33.9  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtH33_S17_L004_R1_fastqc.zip" target="CRwtH33_S17_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtH33_S17_L004_R1_fastqc/fastqc_report.html" target="CRwtH33_S17_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtH33_S17_L004_R2_fastqc.zip" target="CRwtH33_S17_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtH33_S17_L004_R2_fastqc/fastqc_report.html" target="CRwtH33_S17_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtH33_S17_L004_R1_001_screen.html" target="CRwtH33_S17_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CRwtHRP</td><td>CGCCTTCC</td>
+				<td align='right'>6,112,756</td><td align='right'>5.56</td>
+				<td align='right'>94.42  (R1) 91.84 (R2) </td>
+				<td align='right'>33.9  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtHRP_S18_L004_R1_fastqc.zip" target="CRwtHRP_S18_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtHRP_S18_L004_R1_fastqc/fastqc_report.html" target="CRwtHRP_S18_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtHRP_S18_L004_R2_fastqc.zip" target="CRwtHRP_S18_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtHRP_S18_L004_R2_fastqc/fastqc_report.html" target="CRwtHRP_S18_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtHRP_S18_L004_R1_001_screen.html" target="CRwtHRP_S18_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CRwtK27M</td><td>GCCTAGCC</td>
+				<td align='right'>6,973,072</td><td align='right'>6.34</td>
+				<td align='right'>93.81  (R1) 92.18 (R2) </td>
+				<td align='right'>33.8  (R1) 33.5 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtK27M_S19_L004_R1_fastqc.zip" target="CRwtK27M_S19_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK27M_S19_L004_R1_fastqc/fastqc_report.html" target="CRwtK27M_S19_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtK27M_S19_L004_R2_fastqc.zip" target="CRwtK27M_S19_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK27M_S19_L004_R2_fastqc/fastqc_report.html" target="CRwtK27M_S19_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtK27M_S19_L004_R1_001_screen.html" target="CRwtK27M_S19_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CRwtK4</td><td>TGCTGCTG</td>
+				<td align='right'>6,151,103</td><td align='right'>5.59</td>
+				<td align='right'>92.76  (R1) 91.30 (R2) </td>
+				<td align='right'>33.6  (R1) 33.4 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtK4_S20_L004_R1_fastqc.zip" target="CRwtK4_S20_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK4_S20_L004_R1_fastqc/fastqc_report.html" target="CRwtK4_S20_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtK4_S20_L004_R2_fastqc.zip" target="CRwtK4_S20_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtK4_S20_L004_R2_fastqc/fastqc_report.html" target="CRwtK4_S20_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtK4_S20_L004_R1_001_screen.html" target="CRwtK4_S20_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor=#d8d8d8>
+				<td>4</td><td>CRwtMLL1</td><td>AGGTAAGG</td>
+				<td align='right'>7,423,702</td><td align='right'>6.75</td>
+				<td align='right'>94.72  (R1) 92.39 (R2) </td>
+				<td align='right'>33.9  (R1) 33.6 (R2) </td>
+				<td><nobr>R1
+					<!--<a href="CRwtMLL1_S21_L004_R1_fastqc.zip" target="CRwtMLL1_S21_L004_R1_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtMLL1_S21_L004_R1_fastqc/fastqc_report.html" target="CRwtMLL1_S21_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				<nobr>R2
+					<!--<a href="CRwtMLL1_S21_L004_R2_fastqc.zip" target="CRwtMLL1_S21_L004_R2_fastqc"><img title="download" class="icon" src="./resources/images/download.png" border='0'></a>-->
+					<a href="CRwtMLL1_S21_L004_R2_fastqc/fastqc_report.html" target="CRwtMLL1_S21_L004_R2_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a>
+					</a></nobr>
+				</td>
+				
+				<td><nobr>R1
+					<a href="CRwtMLL1_S21_L004_R1_001_screen.html" target="CRwtMLL1_S21_L004_R1_fastqc"><img title="view report" class="icon" src="./resources/images/view.gif" border='0'></a
+					</a></nobr>
+				</td>   
+			</tr>
+			<tr bgcolor='yellow'>
+				<td>4</td><td>Undetermined Indices</td><td>Undetermined</td>
+				<td align='right'>4,042,090</td><td align='right'>3.68</td>
+				<td/><td/><td/><td/>
+			<!--<td/>-->
+				  
+			</tr>
+		</table>
+		</div><!-- basic-params -->
+	</div><!--lane-->
+</div><!--main-->
+</body>
+</html>
