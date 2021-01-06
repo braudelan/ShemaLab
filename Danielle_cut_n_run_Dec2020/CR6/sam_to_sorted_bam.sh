@@ -52,7 +52,7 @@ for file in `ls -1 $input_dir`; do
     command_write_header="samtools view -H ${input_sam_path} >> ${filtered_sam_path}"
     bsub -J "write_header" -q new-all.q -e ${output_dir}/${sample_name}.err -o ${output_dir}/${sample_name}.out "${command_write_header}"
     
-    # @@@-- filter out unmapped, discordant and size irrelevant alignments @@@
+    # @@@-- filter out unmapped and discordant @@@
     command_filter="samtools view -F 4 -f 0x2 ${input_sam_path} >> ${filtered_sam_path}" 
     bsub -w "done(write_header)" -J "filter" -q new-all.q -R "rusage[mem=4240]" -e ${output_dir}/${sample_name}.err -o ${output_dir}/${sample_name}.out "${command_filter}" 
     
