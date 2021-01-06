@@ -24,10 +24,9 @@
 # @@@--- initialize constants ---------------------------------- @@@
 input_dir=$1
 output_dir=$2
-SIZE_TO_FILTER_BY=120
 
 # @@@--- main loop --------------------------------------------- @@@
-regex=[A-Za-z0-9]+_[A-Za-z0-9]+
+regex=[A-Za-z0-9]+
 for file in `ls -1 $input_dir`; do
    
     echo file being processed: $file
