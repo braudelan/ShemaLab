@@ -23,6 +23,9 @@ be passed as arguments by the user.
     and insert it in the appropriate location in the job command.
 
         Todo:
+            * change '@file' to @'sample_name'
+            * rewrite documentation. particularly the initial description.
+            * document '--debug' and '--input_files' optional args.
             * write the main loop as a function.
             * add a readable time stamp to err file names
             * document how the job command is passed
@@ -34,6 +37,7 @@ import subprocess
 import argparse
 import hashlib
 from datetime import datetime
+from num2words import num2words
 
 ENCODING = 'utf-8'
 
@@ -42,7 +46,12 @@ parser = argparse.ArgumentParser()
 # # module argument
 # parser.add_argument("module", choices=['basic', 'sam_to_bam'],
 #                                         help='which module to run')
+
+# debug
+parser.add_argument('-d', '--debug', action='store_true', default=None)
+
 # job command args
+parser.add_argument('-f', '--input_files', action='append', default=None)
 parser.add_argument('-in', '--input_dir', default=None,
                     help='directory to look for files to be processed')
 parser.add_argument('-out', '--output_dir', default=None,
@@ -71,7 +80,7 @@ args = parser.parse_args()
 queue = ['-q', args.queue]
 if args.memory:
     required_memory = f'rusage[mem={args.memory*1024}]' # convert KB to MB
-    memory = ['-R', required_memory] if args.memory else None
+    memory = ['-R', f'"{required_memory}"'] if args.memory else None
 else:
     memory = None
 
@@ -87,10 +96,14 @@ input_dir_pattern = r'\@input_dir'
 output_dir_pattern = r'\@output_dir'
 
 # --------------------------- get file names ----------------------------------
-get_file_names = subprocess.Popen([f'ls -1 {input_dir}'],
+if args.input_files:
+    file_names = args.input_files
+else:
+    get_file_names = subprocess.Popen([f'ls -1 {input_dir}'],
                                   shell=True, stdout=subprocess.PIPE)
-file_names = [byte.decode(ENCODING) for
-              byte in get_file_names.stdout.read().splitlines()]
+    file_names = [byte.decode(ENCODING) for
+                    byte in get_file_names.stdout.read().splitlines()]
+print(f'\nthese are the file names: {file_names}\n\n')  
 
 # --------------------------- build a list of samples from file names ----------
 sample_names = []
@@ -101,17 +114,21 @@ for i, file_name in enumerate(file_names):
     match = compiled_pattern.match(file_name)
     file_id = match.group()
     sample_names.append(file_id)
-
-# --------------------------- run the command for each sample --------------------
+#nput_dir}/${sample_name}.sam 
 unique_sample_names = list(set(sample_names))
+
+# ---------------------- print some of the parameters --------------------
 print(
-    f'\n\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
-    f'run_bsub.py ran with the following parameters:\n'
-    f'input directory == {input_dir}\n'  
-    f'output directory == {output_dir}\n'
-    f'unique sample names == {unique_sample_names}\n'
-    f'number of unique sample names == {len(unique_sample_names)}\n'
+    f'\n@@@@@@@@@@@@  run_bsub.py parameters  @@@@@@@@@@@@@@@@@@@@@\n'
+    f'\ninput directory: {input_dir}\n'  
+    f'output directory: {output_dir}\n'
+    f'unique sample names: {unique_sample_names}\n'
+    f'number of unique sample names: {len(unique_sample_names)}\n\n'
+    f'\n@@@@@@@@@@@@@@  jobs  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n'
 )
+
+
+# ---------------------- run the command for each sample --------------------
 for i, sample_name in enumerate(unique_sample_names):
     # generate a job hash
     now = datetime.now()
@@ -132,7 +149,7 @@ for i, sample_name in enumerate(unique_sample_names):
         job_command = re.sub(pattern, replacement, job_command)
     job_command = f"\"{job_command}\""
     
-# build the paths and commands for bsub's output\
+    # build the paths and commands for bsub's output\
     # and error files
     bsub_error_path = ['-e', f'err/{job_id}']
     bsub_output_path = ['-o', f'out/{job_id}']
@@ -157,10 +174,13 @@ for i, sample_name in enumerate(unique_sample_names):
     	
     # run the complete command in bash
     command_to_run = " ".join(commands_to_run)
+    print(num2words(i + 1, to='ordinal_num') + ' job')
+    print('--------------------------------\n')
+    print(f'sample name: {sample_name}\n') 
+    print(f'job command:\n{command_to_run}\n')
     
-    print(f'the job command was:\n{command_to_run}')
-    
-    subprocess.run(command_to_run, text=True, shell=True) # uncomment this when running in WEXAC
+    if not args.debug:
+        subprocess.run(command_to_run, text=True, shell=True) # uncomment this when running in WEXAC
    
 
 
