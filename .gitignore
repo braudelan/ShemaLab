@@ -5,6 +5,7 @@
 !*.sh 
 !*.pdf
 !*.html
+!*.log
 
 !/Danielle_cut_n_run_Dec2020/
 /Danielle_cut_n_run_Dec2020/*
@@ -12,18 +13,23 @@
 !*.sh 
 !*.pdf
 !*.html
+!*.log
+
 !/Danielle_cut_n_run_Dec2020/CR6/
 /Danielle_cut_n_run_Dec2020/CR6/*
 !*.py 
 !*.sh 
 !*.pdf
 !*.html
+!*.log
+
 !/Danielle_cut_n_run_Dec2020/CR6/multiqc_reports/
 /Danielle_cut_n_run_Dec2020/CR6/multiqc_reports/*
 !*.py 
 !*.sh 
 !*.pdf
 !*.html
+!*.log
 
 ####### Un-ignore the subdirectories
 ###     this allows un-ignored file types in subdirectories 

@@ -1,0 +1,406 @@
+# 12-8-20
+# retrieve fastq data:
+wget --no-check-certificate https://owncloud.incpm.weizmann.ac.il/index.php/s/LAGyr93JypkpGGM/download -O 201206_NB501540_0217_AHLGKWBGXF.zip 
+
+# 13-12-20
+#1. QC on raw data - is available from INCPM, for each lane:
+/home/labs/efratshema01/Collaboration/Danielle_cut_n_run_Dec2020/201206_NB501540_0217_AHLGKWBGXF/qc.zip
+
+# gather all fastq files into folder 00.fastq:
+mkdir 01.fastq
+[bareket@bio 01.fastq]$ cp ../../201206_NB501540_0217_AHLGKWBGXF/fastq/*/*.gz .
+
+# Trimming fastq: note- samples are separated to lanes. still not aggregating the samples
+mkdir 02_trimmed_reads
+
+ls -1 *R1* | perl -pe 's/(.*)(_R\d.*\.fastq.gz)/ cutadapt -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT --times 2 -q 30 -m 20 -o 02_trimmed_reads\/$1_R1_trimmed.fastq -p 02_trimmed_reads\/$1_R2_trimmed.fastq 01.fastq\/$1_R1_001.fastq.gz 01.fastq\/$1_R2_001.fastq.gz/' > ../cutadapt_commands.txt
+
+perl ./runBsub -commands cutadapt_commands.txt -memory 2 -queue bio -ncores 10
+
+#merge fastq from multiple lanes
+[bareket@bio 02_trimmed_reads]$ mkdir concatanated_fastq
+
+#for R1:
+ls -1 *L001_R1* | perl -pe 's/(.*)(_L\d.*\_trimmed.fastq)/ bsub -q bio "cat $1*_R1_trimmed.fastq >> concatanated_fastq\/$1_R1_trimmed.fastq" /' > concatenate_R1_trimmed.txt
+# for R2:
+ls -1 *L001_R2* | perl -pe 's/(.*)(_L\d.*\_trimmed.fastq)/ bsub -q bio "cat $1*_R2_trimmed.fastq >> concatanated_fastq\/$1_R2_trimmed.fastq" /' > concatenate_R2_trimmed.txt
+
+# align trimmed reads
+module load bowtie2/2.3.5.1
+module load samtools
+module load perl
+
+mkdir 03_mapping
+mkdir 03_mapping/bam
+mkdir 03_mapping/bamstat
+
+# Build the command from  02_trimmed_reads/concatanated_fastq/
+# special additions:
+# --dovetail causes Bowtie 2 to consider cases where the mate alignments dovetail as concordant
+# --local --very-sensitive-local --no-unal --no-mixed --no-discordant -I 10 -X 700
+
+ls -1 *R1* | perl -pe 's/(.*)(_R\d.*\.fastq)/ bowtie2 --local --very-sensitive-local --no-unal --no-mixed --no-discordant -I 10 -X 700 -x \/shareDB\/iGenomes\/Homo_sapiens\/UCSC\/hg19\/Sequence\/Bowtie2Index\/genome -1 02_trimmed_reads\/concatanated_fastq\/$1_R1_trimmed.fastq -2 02_trimmed_reads\/concatanated_fastq\/$1_R2_trimmed.fastq -S 03_mapping\/$1.sam 2> 03_mapping\/bamstat\/$1.bam_stat.txt /' > ../../mapping_commands.txt
+
+ # remember to increase run memory
+ ./runBsub -commands mapping_commands.txt -memory 20 -queue bio -ncores 20
+
+# 14-12-20
+#6. Sort the sam file and convert to bam
+module load picard-tools
+module load samtools
+module load  jre
+ module load R
+
+#7. keep reads mapped in proper pair, dont keep read unmapped ([mem=30240):
+#(build from 02_trimmed_reads/concatanated_fastq ):
+ls -1 *_R1* | perl -pe 's/(.*)(_R\d.*\.fastq)/ bsub -q bio -R "rusage[mem=30240] span[hosts=1]" "samtools view -b -h -F 4 -f 0x2  -o 03_mapping\/bam\/$1.bam 03_mapping\/$1.sam" /' > ../../convert_to_bam.txt
+
+ # run commands from file
+
+
+#8. Sort the bam file (added more memory)
+ #(build from 02_trimmed_reads/concatanated_fastq ):
+ # some files needed increase memory for these command:
+ls -1 *_R1* | perl -pe 's/(.*)(_R\d.*\.fastq)/ bsub -q bio -R "rusage[mem=50240] span[hosts=1]" "java -jar \/apps\/RH7U2\/general\/picard\/2.8.3\/picard.jar SortSam SO=coordinate I=03_mapping\/bam\/$1.bam O=03_mapping\/bam\/$1_sorted.bam" /' > ../../sort_bam.txt
+
+ # run commands from file
+
+
+not done:
+
+# run statistics on mapping
+ls -1 *_R1* | perl -pe 's/(.*)(_R\d.*\.fastq)/ bsub -q bio -R "rusage[mem=1240] span[hosts=1]" "samtools flagstat 03_mapping\/bam\/$1.bam > 03_mapping\/bamstat\/$1.flagstat" /' > ../../bam_statistics.txt
+
+# example: samtools flagstat 03_mapping/HRP.bam > 03_mapping/bamstat/HRP.flagstat
+
+
+#9. Plot fragment size (add memory in command)
+ mkdir 04_fragment_size_plots
+
+# (build from 02_trimmed_reads/concatanated_fastq ): 
+ ls -1 *_R1* | perl -pe 's/(.*)(_R\d.*\.fastq)/ bsub -q bio -R "rusage[mem=4240] span[hosts=1]"  "java -jar \/apps\/RH7U2\/general\/picard\/2.8.3\/picard.jar CollectInsertSizeMetrics I=03_mapping\/bam\/$1_sorted.bam MINIMUM_PCT=0.5 O=04_fragment_size_plots\/$1_ins_sz_mtrcs.log H=04_fragment_size_plots\/$1.pdf W=800" /' > ../../plot_fragment_size.txt
+ 
+Run commands file manually
+
+#10. size selection for histone >120bp
+mkdir 05_size_selection_120bp
+
+#step1 in file size_selection_1.txt
+ ls -1 *R1* | grep L001_R1 | perl -pe 's/(.*)(_L\d.*\.fastq.gz)/ samtools view -H 03_mapping\/bam\/$1_sorted.bam > 05_size_selection_120bp\/$1_temp.bam /' > ../size_selection_1.txt
+ 
+#step2 (in file size_selection_2.txt edited manually)
+#example: samtools view ../../03_mapping/bam/CR13K27M_S3_sorted.bam  | awk -F "\t" '{if (($9>120) || ($9< -120)) print $_}' >> CR13K27M_temp.bam
+ ./runBsub -commands size_selection_2.txt  -memory 2 -queue bio -ncores 20 
+ 
+ 
+ #step3: (in file size_selection_3.txt )
+#example: bsub -q bio -R "rusage[mem=4240] "  "samtools view -h -b 05_size_selection_120bp/HRP_temp.bam > 05_size_selection_120bp/HRP.bam"
+ ./runBsub -commands size_selection_3.txt  -memory 1 -queue bio -ncores 20
+
+ 
+# 17-12-20
+ 
+ #step4: (in file size_selection_4.txt )
+#example: bsub -q bio   "samtools index  05_size_selection_120bp/HRP.bam "
+Run commands file manually
+ 
+ #step5 (in file size_selection_5.txt )
+#samtools flagstat 05_size_selection_120bp/HRP.bam > 05_size_selection_120bp/HRP.flagstat
+Run commands file manually
+ 
+ # Peak calling (broad peaks) with the size-selected files:
+mkdir 06_MACS
+
+module load perl
+module load picard-tools/1.119
+module load  python/2.7.13
+ 
+ # Broad peaks:
+# example: bsub -q bio -n 10 "macs2 callpeak -t 05_size_selection_120bp/K27ac.bam -c 05_size_selection_120bp/HRP.bam -B -f BAMPE --SPMR -g hs --nomodel --extsize 100 -n K27ac_vs_HRP --broad --keep-dup auto -q 0.05  --outdir 07_MACS"
+
+# edited the following file with the correspoding input controls, remove HRP samples:
+ ls -1 *R1* | grep L001_R1 | perl -pe 's/(.*)(_L\d.*\.fastq.gz)/ macs2 callpeak -t 05_size_selection_120bp\/$1.bam -c 05_size_selection_120bp\/HRP.bam -B -f BAMPE --SPMR -g hs --nomodel --extsize 100 -n $1_vs_HRP --broad --keep-dup auto -q 0.05  --outdir 06_MACS /' > ../peak_calling.txt
+
+./runBsub -commands peak_calling.txt  -memory 1 -queue bio -ncores 20
+
+
+
+# Call narrow peaks (useful for MLL1, Ezh2):
+mkdir 06_MACS/narrow_peaks
+
+# example: macs2 callpeak -t 05_size_selection_120bp/CR13HP1a_S1.bam -c 05_size_selection_120bp/CR13HRP_S2.bam -B -f BAMPE --SPMR -g hs --nomodel --extsize 100 -n CR13HP1a_S1_vs_HRP  --keep-dup auto -q 0.05  --outdir 06_MACS/narrow_peaks 
+
+./runBsub -commands  peak_calling_narrow.txt -memory 1 -queue bio -ncores 20
+
+# CR13K27M did not pass (core dump)
+ 
+ 
+####################################### 
+ # 20-12-20
+# Check ups: Re-run K27M mut and wt samples to verify their mapping:
+[bareket@bio 03_mapping]$ mkdir reruns
+[bareket@bio 03_mapping]$ mkdir reruns/bam
+[bareket@bio 03_mapping]$ mkdir reruns/bamstat
+
+
+bsub -q bio  -o log_re_map.txt -e error_re_map.txt -R "rusage[mem=20040] span[hosts=1]" " bowtie2 --local --very-sensitive-local --no-unal --no-mixed --no-discordant -I 10 -X 700 -x /shareDB/iGenomes/Homo_sapiens/UCSC/hg19/Sequence/Bowtie2Index/genome -1 02_trimmed_reads/concatanated_fastq/CRmutK27M_S13_R1_trimmed.fastq.gz -2 02_trimmed_reads/concatanated_fastq/CRmutK27M_S13_R2_trimmed.fastq.gz -S 03_mapping/reruns/CRmutK27M_S13.sam 2> 03_mapping/reruns/bamstat/CRmutK27M_S13.bam_stat.txt "
+ 
+bsub -q bio  -o log2_re_map.txt -e error2_re_map.txt -R "rusage[mem=20040] span[hosts=1]" " bowtie2 --local --very-sensitive-local --no-unal --no-mixed --no-discordant -I 10 -X 700 -x /shareDB/iGenomes/Homo_sapiens/UCSC/hg19/Sequence/Bowtie2Index/genome -1 02_trimmed_reads/concatanated_fastq/CRwtK27M_S19_R1_trimmed.fastq.gz -2 02_trimmed_reads/concatanated_fastq/CRwtK27M_S19_R2_trimmed.fastq.gz -S 03_mapping/reruns/CRwtK27M_S19.sam 2> 03_mapping/reruns/bamstat/CRwtK27M_S19.bam_stat.txt  "
+
+ bsub -q bio -R "rusage[mem=30240] span[hosts=1]" "samtools view -b -h -F 4 -f 0x2  -o 03_mapping/reruns/bam/CRmutK27M_S13.bam 03_mapping/reruns/CRmutK27M_S13.sam" 
+  
+  bsub -q bio -R "rusage[mem=50240] span[hosts=1]" "java -jar /apps/RH7U2/general/picard/2.8.3/picard.jar SortSam SO=coordinate I=03_mapping/reruns/bam/CRmutK27M_S13.bam O=03_mapping/reruns/bam/CRmutK27M_S13_sorted.bam" 
+  
+
+ samtools view -H 03_mapping/reruns/bam/CRmutK27M_S13_sorted.bam > 03_mapping/reruns/CRmutK27M_S13_temp.bam 
+# samtools view -H 03_mapping/reruns/bam/CRwtK27M_S19_sorted.bam > 03_mapping/reruns/CRwtK27M_S19_temp.bam 
+ 
+samtools view 03_mapping/reruns/bam/CRmutK27M_S13_sorted.bam| awk -F "\t" '{if (($9>120) || ($9< -120)) print $_}' >> 03_mapping/reruns/CRmutK27M_S13_temp.bam
+
+ samtools view -h -b  03_mapping/reruns/CRmutK27M_S13_temp.bam  >  03_mapping/reruns/CRmutK27M_S13.bam 
+ 
+  bsub -q bio   "samtools index 03_mapping/reruns/CRmutK27M_S13.bam  "
+  
+ bsub -q bio   "samtools flagstat 03_mapping/reruns/CRmutK27M_S13.bam  > 03_mapping/reruns/CRmutK27M_S13.flagstat"
+
+# The number of reads looks the same.
+# re-run peak calling WITHOUT HRRP for qc:
+# mut peak calling without HRP:
+ macs2 callpeak -t 03_mapping/reruns/CRmutK27M_S13.bam -B -f BAMPE --SPMR -g hs --nomodel --extsize 100 -n CRmutK27M_S13_no_control --broad --keep-dup auto -q 0.05  --outdir 03_mapping/reruns/   
+# 705 peaks without background (2 peaks with background)
+
+# Trying with  –keep-dup all
+macs2 callpeak -t 03_mapping/reruns/CRmutK27M_S13.bam -B -f BAMPE --SPMR -g hs --nomodel --extsize 100 -n CRmutK27M_S13_no_control_keepDupAll --broad --keep-dup all -q 0.05  --outdir 03_mapping/reruns/ 
+# 743 peaks 
+
+# WT peak calling without HRP :
+macs2 callpeak -t 05_size_selection_120bp/CRwtK27M_S19.bam -B -f BAMPE --SPMR -g hs --nomodel --extsize 100 -n CRwtK27M_S19_no_control --broad --keep-dup auto -q 0.05  --outdir 03_mapping/reruns/
+# 19,760 peaks 
+
+############################3
+
+
+
+# 21-12-20
+mkdir 07_deepTools
+mkdir 07_deepTools/Bigwigs
+
+## create BigWig files from the size-selected bams, indexed + add RPKM normalization (RPKM (per bin) = number of reads per bin / (number of mapped reads (in millions) * bin length (kb)))
+# Add:
+--normalizeUsing RPKM 
+--binSize 10 # currently using the default windows of 10 kb
+--blackListFileName
+
+#example: bamCoverage -b 05_size_selection_120bp/CR17K27M_S9.bam -o 11_deepTools_3.4.3/CR17K27M_RPKM.bw --normalizeUsingRPKM --binSize 10 --blackListFileName hg19_blacklist_ENCFF001TDO.bed.gz
+
+#build from 01.fastq folder (edite bam names )
+
+module load python/3.7.0
+
+ls -1 *R1* | grep L001_R1 | perl -pe 's/(.*)(_L\d.*\.fastq.gz)/ bamCoverage -b 05_size_selection_120bp\/$1.bam -o 07_deepTools\/Bigwigs\/$1_RPKM.bw --normalizeUsingRPKM --binSize 10 --blackListFileName ..\/..\/Danielle_cut_n_run_July_2020\/Analysis_200706_NB501540_0196_AHCJHHAFX2\/07_deepTools\/hg19_blacklist_ENCFF001TDO.bed.gz /' > ../deepTools_create_bw_commands.txt
+
+perl ./runBsub -commands deepTools_create_bw_commands.txt -memory 4 -queue bio -ncores 20
+
+# memory exceeded for:
+ bsub -q bio -R "rusage[mem=82000] span[hosts=1]"  "bamCoverage -b 05_size_selection_120bp/CRwtMLL1_S21.bam -o 07_deepTools/Bigwigs/CRwtMLL1_S21_RPKM.bw --normalizeUsingRPKM --binSize 10 --blackListFileName ../../Danielle_cut_n_run_July_2020/Analysis_200706_NB501540_0196_AHCJHHAFX2/07_deepTools/hg19_blacklist_ENCFF001TDO.bed.gz"
+
+ bsub -q bio -R "rusage[mem=82000] span[hosts=1]"  "bamCoverage -b 05_size_selection_120bp/CRmutEZH2_S10.bam -o 07_deepTools/Bigwigs/CRmutEZH2_S10_RPKM.bw --normalizeUsingRPKM --binSize 10 --blackListFileName ../../Danielle_cut_n_run_July_2020/Analysis_200706_NB501540_0196_AHCJHHAFX2/07_deepTools/hg19_blacklist_ENCFF001TDO.bed.gz"
+
+ bsub -q bio -R "rusage[mem=82000] span[hosts=1]"  "bamCoverage -b 05_size_selection_120bp/CRwtK4_S20.bam -o 07_deepTools/Bigwigs/CRwtK4_S20_RPKM.bw --normalizeUsingRPKM --binSize 10 --blackListFileName ../../Danielle_cut_n_run_July_2020/Analysis_200706_NB501540_0196_AHCJHHAFX2/07_deepTools/hg19_blacklist_ENCFF001TDO.bed.gz"
+
+
+# create files without blacklist - because the heterochromatin peaks fall on some blacklist regions:
+module load python/3.7.0
+perl ./runBsub -commands deepTools_create_bw_No_blacklist_commands.txt -memory 10 -queue bio -ncores 20
+
+# memory exceeded for:
+ bsub -q bio -R "rusage[mem=204800] span[hosts=1]"  "bamCoverage -b 05_size_selection_120bp/CRwtK27M_S19.bam -o 07_deepTools/Bigwigs/CRwtK27M_S19_RPKM.bw --normalizeUsingRPKM --binSize 10"
+bsub -q bio -R "rusage[mem=204800] span[hosts=1]"  "bamCoverage -b 05_size_selection_120bp/CRwtH33_S17.bam -o 07_deepTools/Bigwigs/CRwtH33_S17_RPKM.bw --normalizeUsingRPKM --binSize 10"
+
+#calculate correlation between the bam files (after size selection):
+ pwd
+/home/labs/efratshema01/Collaboration/Danielle_cut_n_run_Dec2020/Analysis_201206_NB501540_0217_AHLGKWBGXF/07_deepTools/Bigwigs
+
+
+
+
+
+# visualize peaks on a chromosome map
+# 1. prepare a short file from the peaks file:
+cut -f1-3 ../06_MACS/CR13K27M_S3_vs_HRP_peaks.broadPeak > CR13K27M_S4_vs_HRP_peaks.bed
+cut -f1-3 ../06_MACS/CR13K27M_S3_vs_HRP_peaks.broadPeak > CR13K27M_S4_vs_HRP_peaks.bed
+# from the previous experiment:
+cut -f1-3 ../06_MACS/CR13K27M_S3_vs_HRP_peaks.broadPeak > CR13K27M_S4_vs_HRP_peaks.bed
+
+# 2. load file to: http://genome.ucsc.edu/cgi-bin/hgGenome
+
+
+
+
+
+# to do
+#calculate correlation between the bam files (after size selection):
+pwd
+/home/labs/efratshema01/Collaboration/Danielle_cut_n_run_Dec2020/Analysis_201206_NB501540_0217_AHLGKWBGXF/07_deepTools
+
+module load python/3.7.0
+
+#step 1. multiBamSummary 
+bsub -q bio  -o log_corr.txt -e error_corr.txt -R "rusage[mem=100400] span[hosts=1]" "multiBamSummary bins --bamfiles  ../05_size_selection_120bp/CR13HP1a_S1.bam ../05_size_selection_120bp/CR13HRP_S2.bam ../05_size_selection_120bp/CR13K27M_S3.bam ../05_size_selection_120bp/CR13K9me3_S4.bam ../05_size_selection_120bp/CR6H33_S5.bam ../05_size_selection_120bp/CR6HRP_S6.bam ../05_size_selection_120bp/CR6K27M_S7.bam ../05_size_selection_120bp/CR6K4me3_S8.bam ../05_size_selection_120bp/CR6ML11_S9.bam ../05_size_selection_120bp/CRmutEZH2_S10.bam ../05_size_selection_120bp/CRmutH33_S11.bam ../05_size_selection_120bp/CRmutHRP_S12.bam ../05_size_selection_120bp/CRmutK27M_S13.bam ../05_size_selection_120bp/CRmutK4_S14.bam ../05_size_selection_120bp/CRmutMLL1_S15.bam ../05_size_selection_120bp/CRwtEZH2_S16.bam ../05_size_selection_120bp/CRwtH33_S17.bam ../05_size_selection_120bp/CRwtHRP_S18.bam ../05_size_selection_120bp/CRwtK27M_S19.bam ../05_size_selection_120bp/CRwtK4_S20.bam ../05_size_selection_120bp/CRwtMLL1_S21.bam -o all_samples_correlation.npz"
+
+# step 2: plot the spearman correlation heatmap. 
+plotCorrelation  -in all_samples_correlation.npz  --corMethod spearman --skipZeros  --plotTitle "Spearman Correlation of read counts across all samples"  --whatToPlot heatmap --colorMap Reds --plotNumbers --zMin 0.5 -o SpearmanCorr_all-red_Zmin.pdf
+
+plotCorrelation  -in all_samples_correlation.npz  --corMethod spearman --skipZeros  --plotTitle "Spearman Correlation of read counts across all samples"  --whatToPlot heatmap --colorMap Reds --plotNumbers  -o SpearmanCorr_all-red.pdf
+
+
+# Correlation matrix for 293 samples:
+bsub -q bio  -o log_corr.txt -e error_corr.txt -R "rusage[mem=100400] span[hosts=1]" "multiBamSummary bins --bamfiles  ../05_size_selection_120bp/CRmutEZH2_S10.bam ../05_size_selection_120bp/CRmutH33_S11.bam ../05_size_selection_120bp/CRmutHRP_S12.bam ../05_size_selection_120bp/CRmutK27M_S13.bam ../05_size_selection_120bp/CRmutK4_S14.bam ../05_size_selection_120bp/CRmutMLL1_S15.bam ../05_size_selection_120bp/CRwtEZH2_S16.bam ../05_size_selection_120bp/CRwtH33_S17.bam ../05_size_selection_120bp/CRwtHRP_S18.bam ../05_size_selection_120bp/CRwtK27M_S19.bam ../05_size_selection_120bp/CRwtK4_S20.bam ../05_size_selection_120bp/CRwtMLL1_S21.bam -o 293_samples_correlation.npz"
+
+ plotCorrelation  -in 293_samples_correlation.npz  --corMethod spearman --skipZeros  --plotTitle "Spearman Correlation of read counts across all samples"  --whatToPlot heatmap --colorMap Reds --plotNumbers --zMin 0.5 -o SpearmanCorr_293-red_zMin.pdf
+ 
+ 
+ 
+ # Correlation matrix for DIPG13 samples:
+ 
+ bsub -q bio  -o log_corr.txt -e error_corr.txt -R "rusage[mem=100400] span[hosts=1]" "multiBamSummary bins --bamfiles  ../05_size_selection_120bp/CR13HP1a_S1.bam ../05_size_selection_120bp/CR13HRP_S2.bam ../05_size_selection_120bp/CR13K27M_S3.bam ../05_size_selection_120bp/CR13K9me3_S4.bam -o CR13_samples_correlation.npz"
+ 
+  plotCorrelation  -in CR13_samples_correlation.npz  --corMethod spearman --skipZeros  --plotTitle "Spearman Correlation of read counts across all samples"  --whatToPlot heatmap --colorMap Reds --plotNumbers --zMin 0.5 -o SpearmanCorr_DIPG13-red_zMin.pdf
+ 
+ 
+ # Correlation matrix for DIPG6 samples:
+ 
+ bsub -q bio  -o log_corr.txt -e error_corr.txt -R "rusage[mem=100400] span[hosts=1]" "multiBamSummary bins --bamfiles   ../05_size_selection_120bp/CR6H33_S5.bam ../05_size_selection_120bp/CR6HRP_S6.bam ../05_size_selection_120bp/CR6K27M_S7.bam ../05_size_selection_120bp/CR6K4me3_S8.bam ../05_size_selection_120bp/CR6ML11_S9.bam  -o CR6_samples_correlation.npz"
+ 
+   plotCorrelation  -in CR6_samples_correlation.npz  --corMethod spearman --skipZeros  --plotTitle "Spearman Correlation of read counts across all samples"  --whatToPlot heatmap --colorMap Reds --plotNumbers --zMin 0.5 -o SpearmanCorr_DIPG6-red_zMin.pdf
+ 
+ 
+ # Correlation matrix for K27M samples:
+bsub -q bio  -o log_corr.txt -e error_corr.txt -R "rusage[mem=100400] span[hosts=1]" "multiBamSummary bins --bamfiles  ../05_size_selection_120bp/CR6K27M_S7.bam ../05_size_selection_120bp/CR13K27M_S3.bam  ../05_size_selection_120bp/CRmutK27M_S13.bam ../05_size_selection_120bp/CRwtK27M_S19.bam  -o K27M_samples_correlation.npz" 
+ 
+   plotCorrelation  -in K27M_samples_correlation.npz  --corMethod spearman --skipZeros  --plotTitle "Spearman Correlation of read counts across all samples"  --whatToPlot heatmap --colorMap Reds --plotNumbers --zMin 0.5 -o SpearmanCorr_K27M-red_zMin.pdf 
+ 
+  plotCorrelation  -in K27M_samples_correlation.npz  --corMethod spearman --skipZeros  --plotTitle "Spearman Correlation of read counts across all samples"  --whatToPlot heatmap --colorMap Reds --plotNumbers  -o SpearmanCorr_K27M-red.pdf 
+ 
+# 29-12-20
+# Examine CR13-K9 between current experiment and the previous one (Oct2020)
+
+# Spearman correaltion:
+bsub -q bio  -o log_corr.txt -e error_corr.txt -R "rusage[mem=100400] span[hosts=1]" "multiBamSummary bins --bamfiles  ../05_size_selection_120bp/CR13K9me3_S4.bam ../../../Danielle_cut_n_run_Oct2020/Analysis_201013_NB501540_0212_AHG5HYAFX2/05_size_selection_120bp/CR13K9me3.bam  -o CR13K9_Dec-Oct_samples_correlation.npz" 
+
+# plot
+plotCorrelation  -in  CR13K9_Dec-Oct_samples_correlation.npz  --corMethod spearman --skipZeros  --plotTitle "Spearman Correlation of read counts across CR13K9 samples"  --whatToPlot heatmap --colorMap Reds --plotNumbers  -o SpearmanCorr_CR13K9_Dec-Oct-red.pdf 
+
+
+
+# intersection between CR13-K9 peaks from the current experiment and the previous one (Oct2020):
+module load bedtools
+
+bedtools intersect  -wa -a CR13K9me3_S4_vs_HRP_peaks.broadPeak -b ../../../Danielle_cut_n_run_Oct2020/Analysis_201013_NB501540_0212_AHG5HYAFX2/06_MACS/CR13K9me3_S4_vs_HRP_peaks.broadPeak  > peaks_intersections/CR13K9me3-Dec2020_CR13K9me3-Oct2020.bed
+
+273 peaks_intersections/CR13K9me3-Dec2020_CR13K9me3-Oct2020.bed
+
+# the reciprocal comparison:
+bedtools intersect  -wa -b CR13K9me3_S4_vs_HRP_peaks.broadPeak -a ../../../Danielle_cut_n_run_Oct2020/Analysis_201013_NB501540_0212_AHG5HYAFX2/06_MACS/CR13K9me3_S4_vs_HRP_peaks.broadPeak  > peaks_intersections/CR13K9me3-Oct2020_vs_CR13K9me3-Dec2020.bed
+
+273 peaks
+
+
+# which peaks in K9me3 (which were called against HRP) are not present in the HRP at all:
+#1. call HRP peaks:
+macs2 callpeak -t 05_size_selection_120bp/CR13HRP_S2.bam -B -f BAMPE --SPMR -g hs --nomodel --extsize 100 -n CR13HRP_S2_no_control --broad --keep-dup auto -q 0.05  --outdir 06_MACS/peaks_without_control 
+
+# 2. intersect with K9me3:
+bedtools intersect  -wa -v -a CR13K9me3_S4_vs_HRP_peaks.broadPeak -b peaks_without_control/CR13HRP_S2_no_control_peaks.broadPeak  > peaks_intersections/CR13K9me3_NOT_overlap_CR13HRP.bed
+69 peaks_ (out of 432)
+
+
+# Call CR13-K9 peaks without HRP control:
+[bareket@bio 06_MACS]$ mkdir peaks_without_control
+
+macs2 callpeak -t 05_size_selection_120bp/CR13K9me3_S4.bam -B -f BAMPE --SPMR -g hs --nomodel --extsize 100 -n CR13K9me3_S4_no_control --broad --keep-dup auto -q 0.05  --outdir 06_MACS/peaks_without_control 
+
+1312 CR13K9me3_S4_no_control_peaks.broadPeak
+432 CR13K9me3_S4_vs_HRP_peaks.broadPeak
+
+to do:
+# visualize peaks on a chromosome map
+# show CR13-K9 peaks on ideotypes:
+cd 09_ideotypes/
+
+# visualize peaks on a chromosome map
+# 1. prepare a short file from the peaks file:
+cut -f1-3 ../06_MACS/CR13K9me3_S4_vs_HRP_peaks.broadPeak > CR13K9me3_S4_vs_HRP_peaks.bed
+
+# from the previous experiment:
+cut -f1-3 ../../../Danielle_cut_n_run_Oct2020/Analysis_201013_NB501540_0212_AHG5HYAFX2/06_MACS/CR13K9me3_S4_vs_HRP_peaks.broadPeak  > CR13K9me3_S4_vs_HRP_peaks_Oct2020.bed
+
+# for HRP peaks:
+cut -f1-3 ../06_MACS/CR13K9me3_S4_vs_HRP_peaks.broadPeak > CR13K9me3_S4_vs_HRP_peaks.bed
+
+
+# 2. load file to: http://genome.ucsc.edu/cgi-bin/hgGenome
+
+
+# 3-1-21
+# compare between CR13 K9 and K27M at the level of bam and not peaks
+
+multiBamSummary 
+# for K9-K27M: # works with deepTools/3.4.3, python/2.7.13
+#step 1. The default output of multiBamSummary (a compressed numpy array: *.npz) can be visualized using plotCorrelation or plotPCA.
+bsub -q bio  -o log_corr.txt -e error_corr.txt -R "rusage[mem=100400] span[hosts=1]" "multiBamSummary bins --bamfiles ../05_size_selection_120bp/CR13K9me3_S4.bam ../05_size_selection_120bp/CR13K27M_S3.bam   -o Bam_correlation_CR13K9me3-K27M.npz"
+
+# re-run step 1 with Save the counts per region to a tab-delimited file: --outRawCounts, -p max, --ignoreDuplicates
+bsub -q bio  -o log_corr.txt -e error_corr.txt -R "rusage[mem=100400] span[hosts=1]" "multiBamSummary bins --bamfiles ../05_size_selection_120bp/CR13K9me3_S4.bam ../05_size_selection_120bp/CR13K27M_S3.bam  --outRawCounts Bam_correlation_CR13K9me3-K27M.txt  -p max --ignoreDuplicates  -o Bam_correlation_CR13K9me3-K27M.npz"
+
+# step 2: plot the correlation heatmap. # --whatToPlot # works with python/2.7
+plotCorrelation     -in Bam_correlation_CR13K9me3-K27M.npz  --corMethod spearman --skipZeros  --whatToPlot  scatterplot --plotTitle "Spearman Correlation of Read Counts after size filtering"  -o Bam_correlation_CR13K9me3-K27M.pdf  
+
+
+
+# switch version:
+module unload python..
+module load python
+module load deepTools/3.4.3
+
+# with log on axis: --log1p # next time use --skipZeros
+plotCorrelation     -in Bam_correlation_CR13K9me3-K27M.npz  --corMethod spearman --skipZeros  --whatToPlot  scatterplot --plotTitle "Spearman Correlation of Read Counts after size filtering" --log1p  -o Bam_correlation_CR13K9me3-K27M_log1p.pdf  
+
+
+
+
+# for K27ac-K27M from previous experiment (May):
+bsub -q bio  -o log_corr.txt -e error_corr.txt -R "rusage[mem=100400] span[hosts=1]" "multiBamSummary bins --bamfiles ../../../Danielle_cut_n_run_May2020/Analysis_200514_NB501540_0186_AH2W7LBGXF/14_size_selection_120bp_new/CR13K27ac_S3.bam ../../../Danielle_cut_n_run_May2020/Analysis_200514_NB501540_0186_AH2W7LBGXF/14_size_selection_120bp_new/CR13K27M_S4.bam    -o Bam_correlation_CR13K27ac-K27M-May.npz"
+
+# step 2: plot the correlation heatmap. # --whatToPlot 
+plotCorrelation     -in Bam_correlation_CR13K27ac-K27M-May.npz  --corMethod spearman --skipZeros  --whatToPlot  scatterplot --plotTitle "Spearman Correlation of Read Counts after size filtering CR13K27ac-K27M-May" --log1p   -o Bam_correlation_CR13K27ac-K27M-May_log1p.pdf  
+
+
+# for CR13-HRP-K27M:
+bsub -q bio  -o log_corr.txt -e error_corr.txt -R "rusage[mem=100400] span[hosts=1]" "multiBamSummary bins --bamfiles ../05_size_selection_120bp/CR13HRP_S2.bam ../05_size_selection_120bp/CR13K27M_S3.bam  --outRawCounts Bam_correlation_CR13-HRP-K27M.txt  -p max --ignoreDuplicates  -o Bam_correlation_CR13-HRP-K27M.npz"
+
+# step 2: plot the correlation heatmap. # --whatToPlot 
+plotCorrelation     -in Bam_correlation_CR13-HRP-K27M.npz  --corMethod spearman --skipZeros  --whatToPlot  scatterplot --plotTitle "Spearman Correlation of Read Counts after size filtering CR13-HRP-K27M" --log1p   -o Bam_correlation_CR13-HRP-K27M_log1p.pdf 
+
+
+# for CR13-K9-HRP:
+bsub -q bio  -o log_corr.txt -e error_corr.txt -R "rusage[mem=100400] span[hosts=1]" "multiBamSummary bins --bamfiles ../05_size_selection_120bp/CR13HRP_S2.bam ../05_size_selection_120bp/CR13K9me3_S4.bam  --outRawCounts Bam_correlation_CR13-HRP-K9me3.txt  -p max --ignoreDuplicates  -o Bam_correlation_CR13-HRP-K9me3.npz"
+
+to do
+# step 2: plot the correlation heatmap. # --whatToPlot 
+plotCorrelation     -in Bam_correlation_CR13-HRP-K9me3.npz  --corMethod spearman --skipZeros  --whatToPlot  scatterplot --plotTitle "Spearman Correlation of Read Counts after size filtering CR13-HRP-K9me3" --log1p   -o Bam_correlation_CR13-HRP-K9me3_log1p.pdf 
+
+
+
+
+# to do:
+# export correlations to file
+--outRawCounts
+
+Substruct HRP 
+
+
+Compare CR13K9me3 to HRP (in IGV they look very similar)
+ 
+ 
+ 
