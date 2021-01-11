@@ -37,7 +37,7 @@ import subprocess
 import argparse
 import hashlib
 from datetime import datetime
-from num2words import num2words
+#from num2words import num2words
 
 ENCODING = 'utf-8'
 
@@ -174,14 +174,14 @@ for i, sample_name in enumerate(unique_sample_names):
     	
     # run the complete command in bash
     command_to_run = " ".join(commands_to_run)
-    print(num2words(i + 1, to='ordinal_num') + ' job')
+#    print(num2words(i + 1, to='ordinal_num') + ' job')
     print('--------------------------------\n')
     print(f'sample name: {sample_name}\n') 
     print(f'job command:\n{command_to_run}\n')
     
     if not args.debug:
-        subprocess.run(command_to_run, text=True, shell=True) # uncomment this when running in WEXAC
-   
+        subprocess.run(command_to_run, text=True, shell=True) 
+    
 
 
 

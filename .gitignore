@@ -6,6 +6,10 @@
 !*.pdf
 !*.html
 !*.log
+!*.bdg
+!*.broadPeak
+!*.xls
+!*.gappedPeak
 
 !/Danielle_cut_n_run_Dec2020/
 /Danielle_cut_n_run_Dec2020/*
@@ -14,6 +18,10 @@
 !*.pdf
 !*.html
 !*.log
+!*.bdg
+!*.broadPeak
+!*.xls
+!*.gappedPeak
 
 !/Danielle_cut_n_run_Dec2020/CR6/
 /Danielle_cut_n_run_Dec2020/CR6/*
@@ -22,6 +30,24 @@
 !*.pdf
 !*.html
 !*.log
+!*.bdg
+!*.broadPeak
+!*.xls
+!*.gappedPeak
+
+!/Danielle_cut_n_run_Dec2020/CR6/06_peak_callinag/
+/Danielle_cut_n_run_Dec2020/CR6/06_peak_calling/*
+!/Danielle_cut_n_run_Dec2020/CR6/06_peak_calling/broad_peaks/
+/Danielle_cut_n_run_Dec2020/CR6/06_peak_calling/broad_peaks/*
+!*.py 
+!*.sh 
+!*.pdf
+!*.html
+!*.log
+!*.bdg
+!*.broadPeak
+!*.xls
+!*.gappedPeak
 
 !/Danielle_cut_n_run_Dec2020/CR6/multiqc_reports/
 /Danielle_cut_n_run_Dec2020/CR6/multiqc_reports/*
@@ -30,6 +56,10 @@
 !*.pdf
 !*.html
 !*.log
+!*.bdg
+!*.broadPeak
+!*.xls
+!*.gappedPeak
 
 ####### Un-ignore the subdirectories
 ###     this allows un-ignored file types in subdirectories 
