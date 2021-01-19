@@ -87,15 +87,17 @@ else:
 # job command variables
 input_dir = args.input_dir if args.input_dir else None
 output_dir = args.output_dir if args.output_dir else None
-file_id_regex = args.regex
+sample_id_regex = args.regex
 command = args.command
 
 # patterns to be replcaed in the job command
-file_pattern = r'\@file'
+sample_pattern = r'\@sample'
 input_dir_pattern = r'\@input_dir'
 output_dir_pattern = r'\@output_dir'
 
 # --------------------------- get file names ----------------------------------
+# if input files are given explicitly assign them to the file_names variable,
+# otherwise, get 
 if args.input_files:
     file_names = args.input_files
 else:
@@ -107,13 +109,13 @@ print(f'\nthese are the file names: {file_names}\n\n')
 
 # --------------------------- build a list of samples from file names ----------
 sample_names = []
-compiled_pattern = re.compile(rf'{file_id_regex}')
+compiled_pattern = re.compile(rf'{sample_id_regex}')
 for i, file_name in enumerate(file_names):
 
     ## match pattern and return match
     match = compiled_pattern.match(file_name)
-    file_id = match.group()
-    sample_names.append(file_id)
+    sample_id = match.group()
+    sample_names.append(sample_id)
 #nput_dir}/${sample_name}.sam 
 unique_sample_names = list(set(sample_names))
 
@@ -138,9 +140,9 @@ for i, sample_name in enumerate(unique_sample_names):
     # job name
     job_id = f'job.{job_hash[:10]}'
 
-    # insert relevant input and output dir and file name into command
+    # insert relevant input and output dir and sample name into command
     pattern_replacement = [
-        (file_pattern, sample_name),
+        (sample_pattern, sample_name),
         (input_dir_pattern, input_dir),
         (output_dir_pattern, output_dir)
     ]
