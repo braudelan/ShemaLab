@@ -1,36 +1,4 @@
-u"""
-Runnig multiple jobs with the same job command.
-
-    This script grabs a list of files_names from a given directory (input_dir)
-and inserts each file name into a specified job command. the job command is wrapped with
-the bsub command along with it's specified options and run in bash.
-    both the input directory, the job command and the bsub arguments can
-be passed as arguments by the user.
-
-    example:
-    running a cutadapt command with the 'new-all.q' queue::
-            $python run_bsub.py -q new-all.q -in fastq_files  -out trimmed_files
-             -regex SOME_REGULAR_EXPRESSION "cutadapt -a AGATCGGAAGAGCACAC
-             -A AGATCGGAAGAGC --times 2 -q 30 -m 20
-             -o @output_dir/@file1_trimmed.fastq -p @output_dir/@file2_trimmed.fastq
-             @input_dir/@file1_001.fastq.gz @input_dir/@file2_001.fastq.gz"
-
-        notice the quotes around the job command (cutadapt in this case),
-    this is required for correct parsing. Also notice the '@' symbol followed by either file, input_dir or output_dir,
-    these are reserved keywords that will be replaced by the job specific arguments passed under -in, -out and the match
-    of the regular expression.
-    The regular expression is designed to capture the unique sample file name
-    and insert it in the appropriate location in the job command.
-
-        Todo:
-            * change '@file' to @'sample_name'
-            * rewrite documentation. particularly the initial description.
-            * document '--debug' and '--input_files' optional args.
-            * write the main loop as a function.
-            * add a readable time stamp to err file names
-            * document how the job command is passed
-            * give more help on the argument parser (groups?)
-"""
+#!/usr/bin/python3
 import pdb
 import re
 import subprocess
@@ -97,7 +65,7 @@ output_dir_pattern = r'\@output_dir'
 
 # --------------------------- get file names ----------------------------------
 # if input files are given explicitly assign them to the file_names variable,
-# otherwise, get 
+# otherwise, get
 if args.input_files:
     file_names = args.input_files
 else:
@@ -105,7 +73,7 @@ else:
                                   shell=True, stdout=subprocess.PIPE)
     file_names = [byte.decode(ENCODING) for
                     byte in get_file_names.stdout.read().splitlines()]
-print(f'\nthese are the file names: {file_names}\n\n')  
+print(f'\nthese are the file names: {file_names}\n\n')
 
 # --------------------------- build a list of samples from file names ----------
 sample_names = []
@@ -116,13 +84,13 @@ for i, file_name in enumerate(file_names):
     match = compiled_pattern.match(file_name)
     sample_id = match.group()
     sample_names.append(sample_id)
-#nput_dir}/${sample_name}.sam 
+#nput_dir}/${sample_name}.sam
 unique_sample_names = list(set(sample_names))
 
 # ---------------------- print some of the parameters --------------------
 print(
     f'\n@@@@@@@@@@@@  run_bsub.py parameters  @@@@@@@@@@@@@@@@@@@@@\n'
-    f'\ninput directory: {input_dir}\n'  
+    f'\ninput directory: {input_dir}\n'
     f'output directory: {output_dir}\n'
     f'unique sample names: {unique_sample_names}\n'
     f'number of unique sample names: {len(unique_sample_names)}\n\n'
@@ -150,7 +118,7 @@ for i, sample_name in enumerate(unique_sample_names):
     for pattern, replacement in pattern_replacement:
         job_command = re.sub(pattern, replacement, job_command)
     job_command = f"\"{job_command}\""
-    
+
     # build the paths and commands for bsub's output\
     # and error files
     bsub_error_path = ['-e', f'err/{job_id}']
@@ -173,20 +141,13 @@ for i, sample_name in enumerate(unique_sample_names):
             commands_to_run.extend(variable)
         else:
             continue
-    	
+
     # run the complete command in bash
     command_to_run = " ".join(commands_to_run)
 #    print(num2words(i + 1, to='ordinal_num') + ' job')
     print('--------------------------------\n')
-    print(f'sample name: {sample_name}\n') 
+    print(f'sample name: {sample_name}\n')
     print(f'job command:\n{command_to_run}\n')
-    
+
     if not args.debug:
-        subprocess.run(command_to_run, text=True, shell=True) 
-    
-
-
-
-
-
-
+        subprocess.run(command_to_run, text=True, shell=True)
