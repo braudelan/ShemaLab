@@ -65,7 +65,7 @@ output_dir_pattern = r'\@output_dir'
 
 # --------------------------- get file names ----------------------------------
 # if input files are given explicitly assign them to the file_names variable,
-# otherwise, get 
+# otherwise, get
 if args.input_files:
     file_names = args.input_files
 else:
@@ -73,7 +73,7 @@ else:
                                   shell=True, stdout=subprocess.PIPE)
     file_names = [byte.decode(ENCODING) for
                     byte in get_file_names.stdout.read().splitlines()]
-print(f'\nthese are the file names: {file_names}\n\n')  
+print(f'\nthese are the file names: {file_names}\n\n')
 
 # --------------------------- build a list of samples from file names ----------
 sample_names = []
@@ -84,13 +84,13 @@ for i, file_name in enumerate(file_names):
     match = compiled_pattern.match(file_name)
     sample_id = match.group()
     sample_names.append(sample_id)
-#nput_dir}/${sample_name}.sam 
+#nput_dir}/${sample_name}.sam
 unique_sample_names = list(set(sample_names))
 
 # ---------------------- print some of the parameters --------------------
 print(
     f'\n@@@@@@@@@@@@  run_bsub.py parameters  @@@@@@@@@@@@@@@@@@@@@\n'
-    f'\ninput directory: {input_dir}\n'  
+    f'\ninput directory: {input_dir}\n'
     f'output directory: {output_dir}\n'
     f'unique sample names: {unique_sample_names}\n'
     f'number of unique sample names: {len(unique_sample_names)}\n\n'
@@ -118,7 +118,7 @@ for i, sample_name in enumerate(unique_sample_names):
     for pattern, replacement in pattern_replacement:
         job_command = re.sub(pattern, replacement, job_command)
     job_command = f"\"{job_command}\""
-    
+
     # build the paths and commands for bsub's output\
     # and error files
     bsub_error_path = ['-e', f'err/{job_id}']
@@ -141,20 +141,13 @@ for i, sample_name in enumerate(unique_sample_names):
             commands_to_run.extend(variable)
         else:
             continue
-    	
+
     # run the complete command in bash
     command_to_run = " ".join(commands_to_run)
 #    print(num2words(i + 1, to='ordinal_num') + ' job')
     print('--------------------------------\n')
-    print(f'sample name: {sample_name}\n') 
+    print(f'sample name: {sample_name}\n')
     print(f'job command:\n{command_to_run}\n')
-    
+
     if not args.debug:
-        subprocess.run(command_to_run, text=True, shell=True) 
-    
-
-
-
-
-
-
+        subprocess.run(command_to_run, text=True, shell=True)
