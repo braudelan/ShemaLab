@@ -1,36 +1,4 @@
-u"""
-Runnig multiple jobs with the same job command.
-
-    This script grabs a list of files_names from a given directory (input_dir)
-and inserts each file name into a specified job command. the job command is wrapped with
-the bsub command along with it's specified options and run in bash.
-    both the input directory, the job command and the bsub arguments can
-be passed as arguments by the user.
-
-    example:
-    running a cutadapt command with the 'new-all.q' queue::
-            $python run_bsub.py -q new-all.q -in fastq_files  -out trimmed_files
-             -regex SOME_REGULAR_EXPRESSION "cutadapt -a AGATCGGAAGAGCACAC
-             -A AGATCGGAAGAGC --times 2 -q 30 -m 20
-             -o @output_dir/@file1_trimmed.fastq -p @output_dir/@file2_trimmed.fastq
-             @input_dir/@file1_001.fastq.gz @input_dir/@file2_001.fastq.gz"
-
-        notice the quotes around the job command (cutadapt in this case),
-    this is required for correct parsing. Also notice the '@' symbol followed by either file, input_dir or output_dir,
-    these are reserved keywords that will be replaced by the job specific arguments passed under -in, -out and the match
-    of the regular expression.
-    The regular expression is designed to capture the unique sample file name
-    and insert it in the appropriate location in the job command.
-
-        Todo:
-            * change '@file' to @'sample_name'
-            * rewrite documentation. particularly the initial description.
-            * document '--debug' and '--input_files' optional args.
-            * write the main loop as a function.
-            * add a readable time stamp to err file names
-            * document how the job command is passed
-            * give more help on the argument parser (groups?)
-"""
+#!/usr/bin/python3
 import pdb
 import re
 import subprocess
